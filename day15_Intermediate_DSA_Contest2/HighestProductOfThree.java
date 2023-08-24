@@ -24,7 +24,8 @@ public class HighestProductOfThree {
 
     public static void main(String[] args) {
         int[] A = {-10, -10, 1, 3, 2};
-        int result = highestProductOfThree(A);
-        System.out.println(result); // Output will be 300 (since -10 * -10 * 3 = 300)
+//        int result = highestProductOfThree(A);
+        int result1 = highestProductOfThree(A);
+        System.out.println(result1); // Output will be 300 (since -10 * -10 * 3 = 300)
     }
 }

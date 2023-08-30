@@ -27,7 +27,9 @@ public class Basic {
 //        System.out.println(-60%9);
 //        System.out.println("b".compareTo("tppleaaaaaaa"));
 //        int arr[]={1,2,3,4,5};
-        System.out.println((long) Math.pow(2,1000));
-
+//        System.out.println((long) Math.pow(2,1000));
+        String str="Hello";
+        StringBuilder s =new StringBuilder(str);
+        System.out.println(s);
     }
 }

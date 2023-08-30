@@ -9,7 +9,7 @@ Given an array A of N integers. Sort the array in increasing order of the value 
 
 If a number has no tens digit, we can assume value to be 0.
 If 2 numbers have same tens digit, in that case number with max value will come first
-Solution should be based on comparator.
+Flip should be based on comparator.
  */
 public class TenDigitSorting {
     public static ArrayList<Integer> solve(ArrayList<Integer> A) {

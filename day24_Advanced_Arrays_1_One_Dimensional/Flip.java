@@ -1,14 +1,14 @@
 package day24_Advanced_Arrays_1_One_Dimensional;
 
 public class Flip {
-    public int[] flip(String A) {
+    public static int[] flip(String A) {
         int currentSum = 0;
         int finalSum = Integer.MIN_VALUE;
         int start = 0;      // Starting index of the maximum subarray.
         int end = 0;        // Ending index of the maximum subarray.
         int tempStart = 0;  // Starting index of the current subarray.
 
-        // Iterate through the input string
+        // Iterate through the input string{CALCULATING MAXIMUM NET GAIN OF 1's}
         for (int i = 0; i < A.length(); i++) {
             if (A.charAt(i) == '0') {
                 currentSum = currentSum + 1;  // Increment sum for '0'
@@ -37,8 +37,9 @@ public class Flip {
         }
 
         int res[] = new int[2];
-        res[0] = start + 1;
-        res[1] = end + 1;
+
+        res[0] = start + 1; //Adding +1 here because in the question they've given 1 based indexing
+        res[1] = end + 1;   //Adding +1 here because in the question they've given 1 based indexing
         return res;
     }
 

@@ -1,7 +1,5 @@
 package primerContent;
 
-import java.util.Arrays;
-
 public class Basic {
     public static void main(String[] args) {
 //        long l = 100000000000000L;
@@ -28,8 +26,19 @@ public class Basic {
 //        System.out.println("b".compareTo("tppleaaaaaaa"));
 //        int arr[]={1,2,3,4,5};
 //        System.out.println((long) Math.pow(2,1000));
-        String str="Hello";
-        StringBuilder s =new StringBuilder(str);
-        System.out.println(s);
+//
+//        int arr[] = {0, 1, 2, 3, 4};
+//        int max=arr[3];
+//        arr[3]=0;
+//        System.out.println(max);
+//        System.out.println(arr[3]);
+//        System.out.println(max);
+        System.out.println(Math.abs(7-9));
+        StringBuilder sb=new StringBuilder();
+        sb.append("12345");
+        long n1=Long.parseLong(sb.toString());
+        sb.append("lol");
+        System.out.println(sb);
+
     }
 }

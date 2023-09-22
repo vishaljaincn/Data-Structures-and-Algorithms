@@ -2,6 +2,7 @@ package day24_Advanced_Arrays_1_One_Dimensional;
 
 /*
 java program to find maximum value of |arr[i] - arr[j]| + |i - j|
+REFER CLASS NOTES PAGE 8
  */
 public class Max_Value_Of_Given_Function_Brute_Force_O_N2 {
     public static int findValue(int A[]) {

@@ -4,7 +4,6 @@ public class Print_TotalSum_of_All_Sub_array_Sums_Contribution_Technique {
     public static void print_TotalSum_of_All_Sub_array_Sums(int arr[])
     {
         int n=arr.length;
-        int [][]arr3=new int[5][];
         int frequency,contribution,totalSum=0;
 //        O(n)
         for(int i=0;i<n;i++)

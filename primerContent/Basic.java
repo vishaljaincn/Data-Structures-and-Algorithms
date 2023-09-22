@@ -39,6 +39,7 @@ public class Basic {
         long n1=Long.parseLong(sb.toString());
         sb.append("lol");
         System.out.println(sb);
+        System.out.println();
 
     }
 }

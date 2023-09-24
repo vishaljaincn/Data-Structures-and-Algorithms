@@ -1,6 +1,6 @@
 package day35_Advanced_Merge_Sort;
 
-public class MergeSort {
+public class MergeSortAlgorithm {
 
     // Merge two subarrays A[start..mid] and A[mid+1..end] into A
     static void merge(int A[], int start, int mid, int end) {
@@ -17,6 +17,10 @@ public class MergeSort {
             leftArray[i] = A[start + i];
         for (int j = 0; j < n2; j++)
             rightArray[j] = A[mid + 1 + j];
+
+        // Copy data from A to the temporary arrays
+       // System.arraycopy(A, start, leftArray, 0, n1);
+       // System.arraycopy(A, mid + 1, rightArray, 0, n2);
 
         // Initialize indices for traversing leftArray, rightArray, and updating A
         int i, j, k;

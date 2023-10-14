@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 /*
 given an integer array A, find a pair (i,j)index such that A[i]==A[j] and |i-j| is maximum
+Distance between two indices is defined as |i-j|
  */
 public class First_Class_Question {
     public static int[] solve(int A[]) {

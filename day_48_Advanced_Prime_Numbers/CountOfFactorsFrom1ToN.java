@@ -1,4 +1,5 @@
 package day_48_Advanced_Prime_Numbers;
+
 /*
  * given an integer N, find the count of factors of N for all numbers from 1 to N
  */
@@ -30,7 +31,7 @@ public class CountOfFactorsFrom1ToN {
     public static void main(String[] args) {
         int N = 8;
         int[] factorCounts = countFactors(N);
-        
+
         for (int i = 1; i <= N; i++) {
             System.out.println("Number " + i + " has " + factorCounts[i] + " factors.");
         }

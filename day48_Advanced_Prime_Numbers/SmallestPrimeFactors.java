@@ -1,4 +1,4 @@
-package day_48_Advanced_Prime_Numbers;
+package day48_Advanced_Prime_Numbers;
 
 /*
  * given an integer N, find the smallest prime factor for all numbers from 2 to N in java

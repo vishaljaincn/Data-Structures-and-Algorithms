@@ -1,4 +1,4 @@
-package day_48_Advanced_Prime_Numbers;
+package day48_Advanced_Prime_Numbers;
 
 /*
  * given an integer N, find the count of factors of N for all numbers from 1 to N

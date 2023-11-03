@@ -32,7 +32,7 @@ public class LinkedListCycle2_142 {
         }
 
         if (!hasCycle) {
-            return null; // If there's no cycle, return null.
+            return head; // If there's no cycle, return head.
         }
 
         // Move one pointer to the beginning and keep the other pointer at the meeting point.

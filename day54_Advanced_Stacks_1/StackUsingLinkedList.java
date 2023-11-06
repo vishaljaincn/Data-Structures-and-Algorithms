@@ -12,21 +12,21 @@ class ListNode {
 }
 
 public class StackUsingLinkedList {
-    private ListNode top; // Reference to the top node in the stack
+    private ListNode head; // Reference to the top node in the stack
 
     // Constructor to initialize an empty stack
     public StackUsingLinkedList() {
-        top = null;
+        head = null;
     }
 
     // Method to push (add) a new element onto the stack
     public void push(int value) {
         ListNode newNode = new ListNode(value); // Create a new node with the provided value
-        if (top == null) {
-            top = newNode; // If the stack is empty, make the new node the top
+        if (head == null) {
+            head = newNode; // If the stack is empty, make the new node the head
         } else {
-            newNode.next = top; // Link the new node to the current top node
-            top = newNode;      // Update the top to be the new node
+            newNode.next = head; // Link the new node to the current head node
+            head = newNode;      // Update the head to be the new node
         }
     }
 
@@ -36,9 +36,9 @@ public class StackUsingLinkedList {
             System.out.println("Stack is empty. Cannot pop.");
             return -1; // You can choose a different value or throw an exception if you prefer.
         }
-        int poppedValue = top.data; // Get the data from the top node
-        top = top.next;            // Update the top to the next node in the list
-        return poppedValue;        // Return the popped value
+        int poppedValue = head.data; // Get the data from the head node
+        head = head.next;            // Update the head to the next node in the list
+        return poppedValue;          // Return the popped value
     }
 
     // Method to peek (view) the top element without removing it
@@ -47,12 +47,12 @@ public class StackUsingLinkedList {
             System.out.println("Stack is empty. Cannot peek.");
             return -1; // You can choose a different value or throw an exception if you prefer.
         }
-        return top.data; // Return the data of the top node
+        return head.data; // Return the data of the head node
     }
 
     // Method to check if the stack is empty
     public boolean isEmpty() {
-        return top == null; // If the top is null, the stack is empty
+        return head == null; // If the head is null, the stack is empty
     }
 
     public static void main(String[] args) {

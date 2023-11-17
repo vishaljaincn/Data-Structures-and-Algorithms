@@ -2,11 +2,13 @@ package day55_Advanced_Stacks_2;
 
 import java.util.Stack;
 /*
-The time complexity of the prevSmaller function is O(n), where n is the length of the input array A. This is because each element is pushed onto the stack and popped off the stack at most once.
+The time complexity of the prevSmaller function is O(n), where n is the length of the input array A.
+This is because each element is pushed onto the stack and popped off the stack at most once.
 
-The space complexity is also O(n), as the stack can have at most n elements in it, and the additional space used for the ans array is also proportional to the size of the input array.
+The space complexity is also O(n), as the stack can have at most n elements in it, and the additional space used
+for the ans array is also proportional to the size of the input array.
  */
-public class Solution2 {
+public class NearestSmallestIndex {
     // Function to find the index of the nearest smaller element for each element in the array
     public int[] prevSmaller(int[] A) {
         int n = A.length;
@@ -35,7 +37,7 @@ public class Solution2 {
     }
 
     public static void main(String[] args) {
-        Solution2 solution = new Solution2();
+        NearestSmallestIndex solution = new NearestSmallestIndex();
 
         // Example 1
         int[] A1 = {4, 5, 2, 10, 8};

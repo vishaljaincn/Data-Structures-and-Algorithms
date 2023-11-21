@@ -19,8 +19,8 @@ public class QueueUsingDynamicArray {
 
     // Method to enqueue (add) an item to the queue
     public void enqueue(int item) {
-        array.add(item);
         rear++;
+        array.add(item);
     }
 
     // Method to dequeue (remove) an item from the queue
@@ -49,11 +49,13 @@ public class QueueUsingDynamicArray {
 
     // Method to check if the queue is empty
     public boolean isEmpty() {
+
         return front > rear;
     }
 
     // Method to get the size of the queue
     public int size() {
+
         return rear - front + 1;
     }
 

@@ -76,8 +76,11 @@ public class SerializeAndDeserializeBTLeetCode_297 {
                 queue.add(left);
             }
 
+            // Move to the next index
+            i++;
+
             // Create the right child if the value is not null and update the queue
-            if (!values[++i].equals("null")) {
+            if (i < values.length && !values[i].equals("null")) {
                 TreeNode right = new TreeNode(Integer.parseInt(values[i]));
                 parent.right = right;
                 queue.add(right);
@@ -93,4 +96,3 @@ public class SerializeAndDeserializeBTLeetCode_297 {
 // Codec ser = new Codec();
 // Codec deser = new Codec();
 // TreeNode ans = deser.deserialize(ser.serialize(root));
-

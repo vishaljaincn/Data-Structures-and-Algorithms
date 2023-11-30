@@ -5,6 +5,8 @@ package day61_Advanced_Trees_4_LCA;
 
 /* A binary tree node has val, pointer to left child
 and a pointer to right child */
+//TC - O(N)
+//SC - O(H) - usual, O(N) - skewed trees
 class PrintAncestorsOfBT {
     TreeNode root;
 

@@ -32,19 +32,19 @@ class MorrisTraversalForInorder {
                 cur = cur.right;
             } else {
                 // If the current node has a left child, find the rightmost node in the left subtree
-                TreeNode prev = cur.left;
-                while (prev.right != null && prev.right != cur) {
-                    prev = prev.right;
+                TreeNode pred = cur.left;
+                while (pred.right != null && pred.right != cur) {
+                    pred = pred.right;
                 }
 
                 // If the rightmost node's right child is null, link it to the current node and move to the left child.
-                if (prev.right == null) {
-                    prev.right = cur;
+                if (pred.right == null) {
+                    pred.right = cur;
                     cur = cur.left;
                 } else {
                     // If the rightmost node's right child is not null, unlink it, add the current node's value to the result,
                     // and move to the right child.
-                    prev.right = null;
+                    pred.right = null;
                     inorder.add(cur.val);
                     cur = cur.right;
                 }

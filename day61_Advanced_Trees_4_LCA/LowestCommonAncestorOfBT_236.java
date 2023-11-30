@@ -1,6 +1,7 @@
 package day61_Advanced_Trees_4_LCA;
+
 //TC - O(N)
-//SC - O(N)
+//SC - O(H) - usual, O(N) - skewed trees
 class LowestCommonAncestorOfBT_236 {
     // Function to find the lowest common ancestor of nodes p and q in a binary tree
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {

@@ -7,10 +7,10 @@ import java.util.List;
 //find the maximum XOR value between elements(1st element should be from 1st array, 2nd element should be from 2nd array)
 // of two arrays
 class Node {
-    Node[] links;  // Array to store links to child nodes (0 and 1)
+    Node[] links = new Node[2];// Array to store links to child nodes (0 and 1)
 
     Node() {
-        links = new Node[2];
+
     }
 
     // Check if a child node exists for the given bit
@@ -74,7 +74,7 @@ class Trie {
     }
 }
 
-public class Solution {
+public class MaxXor {
     // Function to find the maximum XOR value between elements of two arrays
     static int maxXOR(int n, int m, List<Integer> arr1, List<Integer> arr2) {
         Trie T = new Trie();

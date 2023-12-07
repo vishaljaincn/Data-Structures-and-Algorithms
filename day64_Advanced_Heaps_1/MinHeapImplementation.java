@@ -1,3 +1,5 @@
+package day64_Advanced_Heaps_1;
+
 // MinHeap class represents a binary min heap data structure
 public class MinHeapImplementation {
     private int[] heap;       // Array to store heap elements
@@ -23,13 +25,23 @@ public class MinHeapImplementation {
         // Insert the new element at the end of the heap
         heap[size] = value;
 
-        // Increment the size of the heap
-        size++;
-
-        // Restore the min heap property by fixing the heap (heapify up)
+        // Restore the min heap property by fixing the heap
         heapifyUp(size);
 
+        // Increment the size of the heap after the heapify process
+        size++;
+    }
 
+    // Method to fix the heap property by moving an element up the heap
+    private void heapifyUp(int index) {
+        int parent = ((index - 1) / 2);
+        while (index > 0 && heap[parent] > heap[index]) {
+            // Swap the current element with its parent
+            swap(index, parent);
+
+            // Move up to the parent index
+            index = parent;
+        }
     }
 
     // Method to remove and return the minimum element from the heap
@@ -54,30 +66,6 @@ public class MinHeapImplementation {
         return minElement;
     }
 
-    // Method to return the minimum element without removing it
-    // TC - Peek Method (peek): O(1)
-    public int peek() {
-        // Check if the heap is empty
-        if (size == 0) {
-            throw new IllegalStateException("Heap is empty. Cannot peek.");
-        }
-
-        // The minimum element is at the root of the heap
-        return heap[0];
-    }
-
-    // Method to fix the heap property by moving an element up the heap
-    private void heapifyUp(int index) {
-        int parent = ((index - 1) / 2);
-        while (index > 0 && heap[parent] > heap[index]) {
-            // Swap the current element with its parent
-            swap(index, parent);
-
-            // Move up to the parent index
-            index = parent;
-        }
-    }
-
     // Method to fix the heap property by moving an element down the heap
     private void heapifyDown(int index) {
         int leftChild = 2 * index + 1; // Calculate the index of the left child
@@ -99,6 +87,18 @@ public class MinHeapImplementation {
             swap(index, smallest); // Swap the current element with the smallest child
             heapifyDown(smallest); // Recursively heapify down at the smallest child's index
         }
+    }
+
+    // Method to return the minimum element without removing it
+    // TC - Peek Method (peek): O(1)
+    public int peek() {
+        // Check if the heap is empty
+        if (size == 0) {
+            throw new IllegalStateException("Heap is empty. Cannot peek.");
+        }
+
+        // The minimum element is at the root of the heap
+        return heap[0];
     }
 
     // Method to swap elements at two given indices in the heap

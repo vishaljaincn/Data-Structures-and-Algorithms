@@ -1,5 +1,9 @@
 package day35_Advanced_Merge_Sort;
-
+/*
+Merge Sort Time Complexity -> Best :- O(N log N) Average :- O(N log N) Worst :- O(N log N)
+Space Complexity :- O(N) - Temp array in merge function
+Stable and not in-place
+ */
 public class MergeSortAlgorithm {
 
     // Merge two subarrays A[start..mid] and A[mid+1..end] into A

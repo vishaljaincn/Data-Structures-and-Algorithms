@@ -44,7 +44,7 @@ class FindMedianFromDataStream_295 {
         if (size1 - size2 > 1) {
             int element = maxHeap.poll();
             minHeap.offer(element);
-        } else if (size2 - size1 > 0) {
+        } else if (size1 - size2 < 0) {
             int element = minHeap.poll();
             maxHeap.offer(element);
         }

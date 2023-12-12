@@ -85,7 +85,7 @@ public class NmeetingsIn1Room_DifferentVersion {
     public static void main(String args[]) {
         int n = 6;
         int start[] = {1, 3, 0, 5, 8, 5};
-        int end[] = {2, 4, 5, 7, 9, 9};
+        int end[] =   {2, 4, 5, 7, 9, 9};
         maxMeetings(start, end, n);
     }
 }

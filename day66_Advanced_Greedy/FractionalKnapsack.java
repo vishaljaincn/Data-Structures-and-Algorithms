@@ -2,7 +2,8 @@ package day66_Advanced_Greedy;
 //INSTEAD OF VALUE THEY CAN GIVE PROTEIN CONTENT, INSTEAD OF WEIGHT THEY CAN GIVE QUANTITY, THEN SORT THE ITEMS IN DECREASING
 //ORDER OF PROTEIN CONTENT/PER KG
 /*
-Problem Statement: The weight of N items and their corresponding values are given. We have to put these items in a knapsack of weight W such that the total value obtained is maximized.
+Problem Statement: The weight of N items and their corresponding values are given. We have to put these items in a knapsack
+of weight W such that the total value obtained is maximized.
 
 Note: We can either take the item as a whole or break it into smaller units.
 

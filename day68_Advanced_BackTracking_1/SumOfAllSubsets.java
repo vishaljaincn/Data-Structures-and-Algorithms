@@ -25,21 +25,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 class SumOfAllSubsets {
-    // Helper function to calculate subset sums recursively
-    static void subsetSumsHelper(int ind, int sum, ArrayList<Integer> arr, int N, ArrayList<Integer> sumSubset) {
-        // Base case: if the current index reaches the end of the array
-        if (ind == N) {
-            // Add the calculated sum to the list of subset sums
-            sumSubset.add(sum);
-            return;
-        }
-
-        // Pick the element at the current index and add it to the sum
-        subsetSumsHelper(ind + 1, sum + arr.get(ind), arr, N, sumSubset);
-
-        // Do not pick the element at the current index and move to the next index
-        subsetSumsHelper(ind + 1, sum, arr, N, sumSubset);
-    }
 
     // Main function to calculate subset sums
     static ArrayList<Integer> subsetSums(ArrayList<Integer> arr, int N) {
@@ -54,6 +39,22 @@ class SumOfAllSubsets {
 
         // Return the sorted list of subset sums
         return sumSubset;
+    }
+
+    // Helper function to calculate subset sums recursively
+    static void subsetSumsHelper(int ind, int sum, ArrayList<Integer> arr, int N, ArrayList<Integer> sumSubset) {
+        // Base case: if the current index reaches the end of the array
+        if (ind == N) {
+            // Add the calculated sum to the list of subset sums
+            sumSubset.add(sum);
+            return;
+        }
+
+        // Pick the element at the current index and add it to the sum
+        subsetSumsHelper(ind + 1, sum + arr.get(ind), arr, N, sumSubset);
+
+        // Do not pick the element at the current index and move to the next index
+        subsetSumsHelper(ind + 1, sum, arr, N, sumSubset);
     }
 
     // Main method to test the subsetSums function

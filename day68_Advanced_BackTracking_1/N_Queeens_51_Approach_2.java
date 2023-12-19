@@ -23,7 +23,6 @@ Space Complexity: O(N) Maximum Depth of the recursion tree(auxiliary space).
 
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 class N_Queeens_51_Approach_2 {
@@ -40,8 +39,8 @@ class N_Queeens_51_Approach_2 {
 
         // Arrays to keep track of the availability of rows and diagonals
         int leftRow[] = new int[n];
-        int upperDiagonal[] = new int[2 * n - 1];
         int lowerDiagonal[] = new int[2 * n - 1];
+        int upperDiagonal[] = new int[2 * n - 1];
 
         // Start the recursive solving process
         solve(0, board, res, leftRow, lowerDiagonal, upperDiagonal);

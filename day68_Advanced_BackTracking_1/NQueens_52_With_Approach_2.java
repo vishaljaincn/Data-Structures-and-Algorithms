@@ -27,11 +27,6 @@ class NQueens_52_With_Approach_2 {
     public static int totalNQueens(int n) {
         char[][] board = new char[n][n];
 
-        // Initialize the board with empty cells
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                board[i][j] = '.';
-
         // Arrays to keep track of the availability of rows and diagonals
         int leftRow[] = new int[n];
         int upperDiagonal[] = new int[2 * n - 1];
@@ -76,7 +71,7 @@ class NQueens_52_With_Approach_2 {
 
     // Main method to demonstrate the N-Queens solution
     public static void main(String args[]) {
-        int N = 1;
+        int N = 4;
         int solutions = totalNQueens(N);
         System.out.println("The number of distinct solutions for " + N + "-Queens puzzle is: " + solutions);
     }

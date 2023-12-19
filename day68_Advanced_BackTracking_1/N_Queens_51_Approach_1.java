@@ -22,7 +22,6 @@ Space Complexity: O(N) Maximum Depth of the recursion tree(auxiliary space).
  */
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 class N_Queens_51_Approach_1 {
@@ -37,6 +36,27 @@ class N_Queens_51_Approach_1 {
         List<List<String>> res = new ArrayList<>();
         dfs(0, board, res); // Start the depth-first search from the first column
         return res;
+    }
+
+
+    // Recursive depth-first search to explore all possible solutions
+    static void dfs(int col, char[][] board, List<List<String>> res) {
+        // If we reach the last column, add the current board configuration to the result
+        if (col == board.length) {
+            res.add(construct(board));
+            return;
+        }
+
+        // Try placing a queen in each row of the current column
+        for (int row = 0; row < board.length; row++) {
+            if (validate(board, row, col)) {
+                // If the placement is valid, update the board and continue the search
+                board[row][col] = 'Q';
+                dfs(col + 1, board, res);
+                // Backtrack: Undo the placement to explore other possibilities
+                board[row][col] = '.';
+            }
+        }
     }
 
     // Helper function to check if placing a queen at a specific position is valid
@@ -72,26 +92,6 @@ class N_Queens_51_Approach_1 {
 
         // If no conflicts, the placement is valid
         return true;
-    }
-
-    // Recursive depth-first search to explore all possible solutions
-    static void dfs(int col, char[][] board, List<List<String>> res) {
-        // If we reach the last column, add the current board configuration to the result
-        if (col == board.length) {
-            res.add(construct(board));
-            return;
-        }
-
-        // Try placing a queen in each row of the current column
-        for (int row = 0; row < board.length; row++) {
-            if (validate(board, row, col)) {
-                // If the placement is valid, update the board and continue the search
-                board[row][col] = 'Q';
-                dfs(col + 1, board, res);
-                // Backtrack: Undo the placement to explore other possibilities
-                board[row][col] = '.';
-            }
-        }
     }
 
     // Convert the board configuration to a list of strings

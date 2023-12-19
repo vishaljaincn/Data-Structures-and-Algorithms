@@ -42,6 +42,31 @@ import java.util.ArrayList;
 // Class to find a path in a binary matrix
 class RatInAMaze_Approach_2 {
 
+    // Function to find a path in the matrix
+    public static ArrayList<String> findPath(int[][] m, int n) {
+        int vis[][] = new int[n][n];
+
+        // Initialize the visited matrix
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                vis[i][j] = 0;
+            }
+        }
+
+        // Define the possible movements: Down, Left, Right, Up
+        int di[] = {+1, 0, 0, -1};
+        int dj[] = {0, -1, 1, 0};
+
+        ArrayList<String> ans = new ArrayList<>();
+
+        // If the starting point is valid, initiate the recursive path-finding function
+        if (m[0][0] == 1) {
+            solve(0, 0, m, n, ans, "", vis, di, dj);
+        }
+
+        return ans;
+    }
+
     // Recursive function to find a path
     private static void solve(int i, int j, int a[][], int n, ArrayList<String> ans, String move,
                               int vis[][], int di[], int dj[]) {
@@ -73,31 +98,6 @@ class RatInAMaze_Approach_2 {
                 vis[i][j] = 0;
             }
         }
-    }
-
-    // Function to find a path in the matrix
-    public static ArrayList<String> findPath(int[][] m, int n) {
-        int vis[][] = new int[n][n];
-
-        // Initialize the visited matrix
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                vis[i][j] = 0;
-            }
-        }
-
-        // Define the possible movements: Down, Left, Right, Up
-        int di[] = {+1, 0, 0, -1};
-        int dj[] = {0, -1, 1, 0};
-
-        ArrayList<String> ans = new ArrayList<>();
-
-        // If the starting point is valid, initiate the recursive path-finding function
-        if (m[0][0] == 1) {
-            solve(0, 0, m, n, ans, "", vis, di, dj);
-        }
-
-        return ans;
     }
 
     public static void main(String[] args) {

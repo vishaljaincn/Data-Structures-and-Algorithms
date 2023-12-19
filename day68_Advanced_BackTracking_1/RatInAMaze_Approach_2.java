@@ -79,7 +79,7 @@ class RatInAMaze_Approach_2 {
     public static ArrayList<String> findPath(int[][] m, int n) {
         int vis[][] = new int[n][n];
 
-        // Initialize the visibility matrix
+        // Initialize the visited matrix
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 vis[i][j] = 0;

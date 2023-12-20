@@ -1,5 +1,4 @@
 package day69_Advanced_BackTracking_2;
-
 /*
 Time Complexity:
 The time complexity is exponential, roughly O(9^(n^2)), where 'n' is the size of the Sudoku board
@@ -11,7 +10,9 @@ The space complexity is O(n^2), where 'n' is the size of the Sudoku board.
 This is primarily determined by the maximum depth of the recursion stack, which is proportional to the number of empty cells
 in the puzzle. In the worst case, it's at most 81 for a standard 9x9 Sudoku puzzle.
  */
-class SudokuSolver {
+
+public class SudokuSolver {
+
     public void solveSudoku(char[][] board) {
         solve(board);
     }
@@ -72,4 +73,40 @@ class SudokuSolver {
 
         return true; // Digit can be placed in the cell
     }
+
+    public static void main(String[] args) {
+        SudokuSolver sudokuSolver = new SudokuSolver();
+
+        // Example Sudoku puzzle
+        char[][] sudokuBoard = {
+                {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+        };
+
+        System.out.println("Original Sudoku Board:");
+        printSudokuBoard(sudokuBoard);
+
+        sudokuSolver.solveSudoku(sudokuBoard);
+
+        System.out.println("\nSolved Sudoku Board:");
+        printSudokuBoard(sudokuBoard);
+    }
+
+    // Helper function to print the Sudoku board
+    private static void printSudokuBoard(char[][] board) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
 }
+

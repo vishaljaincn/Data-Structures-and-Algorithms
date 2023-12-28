@@ -13,7 +13,8 @@ public class Fibonacci_Tabulation_With_Space_Optimization {
 
     // Method to calculate the nth Fibonacci number using iteration
     public static int fib(int n) {
-        // Base case: if n is 0 or 1, return n
+        // Base case: if n is 0 or 1, return n'
+
         if (n <= 1) {
             return n;
         }
@@ -21,17 +22,16 @@ public class Fibonacci_Tabulation_With_Space_Optimization {
         // Initialize variables to store the previous two Fibonacci numbers and the current Fibonacci number
         int prevPrev = 0;  // Fibonacci number at position n-2
         int prev = 1;      // Fibonacci number at position n-1
-        int current = 0;   // Fibonacci number at position n
 
         // Iterate from position 2 to n to calculate Fibonacci numbers iteratively
         for (int i = 2; i <= n; i++) {
-            current = prev + prevPrev;  // Calculate the current Fibonacci number
+            int current = prev + prevPrev;  // Calculate the current Fibonacci number
             prevPrev = prev;            // Update the previous Fibonacci number at position n-2
             prev = current;             // Update the previous Fibonacci number at position n-1
         }
 
         // Return the calculated Fibonacci number at position n
-        return current;
+        return prev;
     }
 
     // Main method to test the fib() method

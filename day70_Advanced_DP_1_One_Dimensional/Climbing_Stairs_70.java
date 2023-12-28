@@ -42,16 +42,16 @@ class Climbing_Stairs_70 {
         // Initialize variables to store the previous two Fibonacci numbers and the current Fibonacci number
         int prevPrev = 1;  // Number of ways to climb n-2 stairs
         int prev = 1;      // Number of ways to climb n-1 stairs
-        int current = 0;   // Number of ways to climb n stairs
+
 
         // Iterate from position 2 to n to calculate the number of ways to climb stairs iteratively
         for (int i = 2; i <= n; i++) {
-            current = prev + prevPrev;  // Calculate the number of ways to climb n stairs
+            int current = prev + prevPrev;  // Calculate the number of ways to climb n stairs
             prevPrev = prev;            // Update the number of ways to climb n-2 stairs
             prev = current;             // Update the number of ways to climb n-1 stairs
         }
 
         // Return the calculated number of ways to climb n stairs
-        return current;
+        return prev;
     }
 }

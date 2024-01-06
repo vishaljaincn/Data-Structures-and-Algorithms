@@ -1,7 +1,10 @@
 package day71_Advanced_DP_2_Two_Dimensional;
 
 import java.util.Arrays;
-
+/*
+Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the
+elements in both subsets is equal or false otherwise.
+ */
 /*
  * Time Complexity: O(N*K) + O(N)
  * Reason: There are N*K states, so at max ‘N*K’ new problems will be solved.
@@ -42,17 +45,17 @@ public class PartitionEqualSubsetSum_416 {
 
     // Helper function for recursive approach with memoization
     private static boolean canPartitionRecursive(int[] nums, int n, int targetSum, boolean[][] memo) {
-        // Base cases
 
-        // If the target sum is 0, there is always an empty subset
-        if (targetSum == 0) {
-            return true; // Empty subset
+        // Base case: No elements remaining to consider (n is 0)
+        if (n == 0) {
+            // If the target sum is 0, there is a valid subset
+            // Otherwise, there is no valid subset
+            if (targetSum == 0) {
+                return true; // valid subset
+            }
+            return false; // No valid subset
         }
 
-        // If there are no elements left and the target sum is non-zero, no subset is possible
-        if (n == 0 || targetSum < 0) {
-            return false; // No elements left or the sum is negative
-        }
 
         // Check if the result is already memoized
         if (memo[n][targetSum]) {

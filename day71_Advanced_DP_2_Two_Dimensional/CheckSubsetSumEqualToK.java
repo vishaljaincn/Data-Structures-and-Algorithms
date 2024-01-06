@@ -48,16 +48,15 @@ public class CheckSubsetSumEqualToK {
 
     // Recursive helper function with memoization
     private static boolean hasSubsetWithSumRecursive(int[] arr, int n, int K, boolean[][] memo) {
-        // Base cases
 
-        // If the required sum is 0, there is always an empty subset
-        if (K == 0) {
-            return true; // Empty subset
-        }
-
-        // If there are no elements left and the required sum is non-zero, no subset possible
-        if (n == 0 || K < 0) {
-            return false; // No elements left or the sum is negative
+        // Base case: No elements remaining to consider (n is 0)
+        if (n == 0) {
+            // If the target sum is 0, there is a valid subset
+            // Otherwise, there is no valid subset
+            if (K == 0) {
+                return true; // valid subset
+            }
+            return false; // No valid subset
         }
 
         // Check if the result is already memoized
@@ -83,7 +82,7 @@ public class CheckSubsetSumEqualToK {
     // Main method to test the functionality
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4};
-        int K = 100;
+        int K = 4;
 
         // Call the function and print the result
         boolean result = hasSubsetWithSum(arr, K);

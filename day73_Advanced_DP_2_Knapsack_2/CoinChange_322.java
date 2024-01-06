@@ -1,7 +1,13 @@
 package day73_Advanced_DP_2_Knapsack_2;
 
 import java.util.Arrays;
+/*
+You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
 
+Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+
+You may assume that you have an infinite number of each kind of coin.
+ */
 /**
  * Time Complexity: O(n * amount), where n is the number of coins and amount is the target amount.
  * - The function has n * amount subproblems, and each subproblem takes constant time.
@@ -9,7 +15,7 @@ import java.util.Arrays;
  * Space Complexity: O(n * amount), for the memoization table.
  * - Additional space is used to store intermediate results in the memoization table.
  */
-public class Solution {
+public class CoinChange_322 {
 
     // Memoization table to store computed results
     private int[][] dp;

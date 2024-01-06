@@ -44,17 +44,17 @@ public class CountSubsetsWithSumK {
 
     // Recursive helper function with memoization
     private static int countSubsetsWithSumRecursive(int[] arr, int n, int K, int[][] memo) {
-        // Base cases
 
-        // If the required sum is 0, there is always an empty subset
-        if (K == 0) {
-            return 1; // Empty subset
+        // Base case: No elements remaining to consider (n is 0)
+        if (n == 0) {
+            // If the target sum is 0, there is one valid subset
+            // Otherwise, there is no valid subset
+            if (K == 0) {
+                return 1; // One valid subset
+            }
+            return 0; // No valid subset
         }
 
-        // If there are no elements left and the required sum is non-zero, no subset possible
-        if (n == 0 || K < 0) {
-            return 0; // No elements left or the sum is negative
-        }
 
         // Check if the result is already memoized
         if (memo[n][K] != -1) {

@@ -1,14 +1,21 @@
-package day73_Advanced_DP_2_Knapsack_2;
+package day73_Advanced_DP_4_Knapsack_2;
 
 import java.util.Arrays;
-/*
-You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
 
-Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+/*
+You are given an integer array coins representing coins of different denominations and an integer amount representing
+a total amount of money.
+
+Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by
+any combination of the coins, return -1.
 
 You may assume that you have an infinite number of each kind of coin.
  */
+
 /**
+ * This class represents a solution to the Coin Change problem (322) using a recursive dynamic programming approach.
+ * The goal is to find the fewest number of coins needed to make up a given amount using a given set of coins.
+ * <p>
  * Time Complexity: O(n * amount), where n is the number of coins and amount is the target amount.
  * - The function has n * amount subproblems, and each subproblem takes constant time.
  * <p>
@@ -40,12 +47,14 @@ public class CoinChange_322 {
     private int solve(int[] coins, int n, int amt) {
         // Base case: If there are no more coins available or the remaining amount is negative,
         // return a large value, indicating no valid solution from this subproblem.
-        if (n == 0 || amt < 0)
-            return (int) Math.pow(10, 9);
-
-        // Base case: If the remaining amount is non-positive, no more coins needed, return 0.
-        if (amt == 0)
-            return 0;
+        if (n == 0) {
+            // Base case: If the remaining amount is non-positive, no more coins needed, return 0.
+            if (amt == 0) {
+                return 0; // No more coins needed
+            } else {
+                return (int) Math.pow(10, 9); // A large value indicating no valid solution
+            }
+        }
 
         // If the result for the current state is already computed, return it
         if (dp[n][amt] != -1) {

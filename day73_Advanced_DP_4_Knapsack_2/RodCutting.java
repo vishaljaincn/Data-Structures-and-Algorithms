@@ -1,6 +1,7 @@
-package day73_Advanced_DP_2_Knapsack_2;
+package day73_Advanced_DP_4_Knapsack_2;
 /*
-Given a rod of length ‘N’ units. The rod can be cut into different sizes and each size has a cost associated with it. Determine the maximum cost obtained by cutting the rod and selling its pieces.
+Given a rod of length ‘N’ units. The rod can be cut into different sizes and each size has a cost associated with it.
+Determine the maximum cost obtained by cutting the rod and selling its pieces.
 
 Note:
 1. The sizes will range from 1 to ‘N’ and will be integers.
@@ -98,11 +99,11 @@ public class RodCutting {
     */
     public static int cutRod(int[] price, int n) {
         // Two-dimensional array to store the results of subproblems.
-        int[][] cost = new int[n + 2][n + 2];
+        int[][] cost = new int[n + 1][n + 1];
 
         // Initialize the cost array with -1 to indicate that subproblems are not solved yet.
-        for (int i = 0; i < n + 2; i++) {
-            for (int j = 0; j < n + 2; j++) {
+        for (int i = 0; i < n + 1; i++) {
+            for (int j = 0; j < n + 1; j++) {
                 cost[i][j] = -1;
             }
         }

@@ -1,14 +1,16 @@
 package day71_Advanced_DP_2_Two_Dimensional;
 
 import java.util.Arrays;
+
 /*
-Given an array arr, partition it into two subsets(possibly empty) such that their union is the original array. Let the sum of
-the element of these two subsets be S1 and S2.
+You are given an integer array nums and an integer target.
 
-Given a difference d, count the number of partitions in which S1 is greater than or equal to S2 and the difference S1 and S2
-is equal to d. since the answer may be large return it modulo 109 + 7.
+You want to build an expression out of nums by adding one of the symbols '+' and '-' before each integer in nums and then
+concatenate all the integers.
+
+For example, if nums = [2, 1], you can add a '+' before 2 and a '-' before 1 and concatenate them to build the expression "+2-1".
+Return the number of different expressions that you can build, which evaluates to target.
  */
-
 /*
  * Time Complexity: O(N*K) + O(N)
  * Reason: There are N*K states, so at max ‘N*K’ new problems will be solved.
@@ -17,19 +19,15 @@ is equal to d. since the answer may be large return it modulo 109 + 7.
  * Space Complexity: O(N*K) + O(N)
  * Reason: We are using recursion stack space (O(N)) and a 2D array (O(N*K)) for memoization.
  */
+public class TargetSum_494 {
 
-public class SubsetPartitionWithGivenDifferenceCounter {
-
-    // Modulo value for handling large numbers
-    static int mod = (int) (Math.pow(10, 9) + 7);
-
-    public static int countPartitions(int n, int d, int[] arr) {
+    public static int findTargetSumWays(int[] arr, int d) {
+        int n = arr.length;
         // Calculate the total sum of the array elements
         int totalSum = 0;
         for (int i = 0; i < n; i++) {
             totalSum += arr[i];
         }
-
 /*
    Given equation:
        question,
@@ -56,6 +54,7 @@ public class SubsetPartitionWithGivenDifferenceCounter {
         // Ensure that the totalSum minus the target difference is non-negative
         if (totalSum - d < 0) return 0;
 
+        // Checking for edge cases
         // Ensure that the totalSum minus the target difference is even
         if ((totalSum - d) % 2 == 1) return 0;
 
@@ -103,7 +102,7 @@ public class SubsetPartitionWithGivenDifferenceCounter {
         }
 
         // Total number of subsets with the given sum
-        // Memoize the resul
-        return memo[n][targetSum] = (withoutCurrent + withCurrent) % mod;
+        // Memoize the result
+        return memo[n][targetSum] = withoutCurrent + withCurrent;
     }
 }

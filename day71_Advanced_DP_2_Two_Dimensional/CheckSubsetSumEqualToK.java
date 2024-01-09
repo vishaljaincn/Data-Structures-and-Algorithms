@@ -37,10 +37,10 @@ public class CheckSubsetSumEqualToK {
         // Create a memoization table to store already computed results
         boolean[][] memo = new boolean[n + 1][K + 1];
 
-        // Initialize the memo table with false
-        for (boolean[] row : memo) {
-            Arrays.fill(row, false);
-        }
+//        // Initialize the memo table with false
+//        for (boolean[] row : memo) {
+//            Arrays.fill(row, false);
+//        }
 
         // Call the recursive function with memoization
         return hasSubsetWithSumRecursive(arr, n, K, memo);

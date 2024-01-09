@@ -73,8 +73,8 @@ class WildcardMatching_44 {
         else {
             if (S1.charAt(i) == '*') {
                 // Two possibilities when encountering '*':
-                // 1. '*' matches one or more characters in S2.
-                // 2. '*' matches zero characters in S2.
+                // 1. '*' matches zero characters in S2.
+                // 2. '*' matches one or more characters in S2.
                 return dp[i][j] = (wildcardMatchingUtil(S1, S2, i - 1, j, dp) || wildcardMatchingUtil(S1, S2, i, j - 1, dp));
             } else {
                 // Characters don't match, and S1[i] is not '*'.

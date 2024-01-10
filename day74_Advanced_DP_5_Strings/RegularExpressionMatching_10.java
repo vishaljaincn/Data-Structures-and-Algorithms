@@ -1,24 +1,26 @@
 package day74_Advanced_DP_5_Strings;
 
 /*
-Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '*' where:
-'?' Matches any single character.
-'*' Matches any sequence of characters (including the empty sequence).
+Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
+
+'.' Matches any single character.
+'*' Matches zero or more of the preceding element.
 The matching should cover the entire input string (not partial).
+
 Example 1:
 Input: s = "aa", p = "a"
 Output: false
 Explanation: "a" does not match the entire string "aa".
 
 Example 2:
-Input: s = "aa", p = "*"
+Input: s = "aa", p = "a*"
 Output: true
-Explanation: '*' matches any sequence.
+Explanation: '*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
 
 Example 3:
-Input: s = "cb", p = "?a"
-Output: false
-Explanation: '?' matches 'c', but the second letter is 'a', which does not match 'b'.
+Input: s = "ab", p = ".*"
+Output: true
+Explanation: ".*" means "zero or more (*) of any character (.)".
  */
 /*
 Time Complexity: O(N*M)
@@ -27,21 +29,23 @@ Reason: There are N*M states therefore at max ‘N*M’ new problems will be sol
 Space Complexity: O(N*M) + O(N+M)
 Reason: We are using a recursion stack space(O(N+M)) and a 2D array ( O(N*M)).
  */
-class WildcardMatching_44 {
+
+class RegularExpressionMatching_10 {
     // Main function to check if S1 matches the wildcard pattern S2
     static boolean isMatch(String S1, String S2) {
         int n = S1.length();
         int m = S2.length();
 
+        // Create a memoization table for dynamic programming
         Boolean dp[][] = new Boolean[n][m];
 
         // Call the recursive helper function
-        return wildcardMatchingUtil(S1, S2, n - 1, m - 1, dp);
+        return doesMatch(S1, S2, n - 1, m - 1, dp);
     }
 
     // Helper function to check if all characters from index 0 to j in S2 are '*'
     static Boolean isAllStars(String S2, int j) {
-        for (int idx = 0; idx <= j; idx++) {
+        for (int idx = j; idx >= 0; idx -= 2) {
             if (S2.charAt(idx) != '*')
                 return false;
         }
@@ -49,7 +53,7 @@ class WildcardMatching_44 {
     }
 
     // Recursive function to perform wildcard pattern matching
-    static Boolean wildcardMatchingUtil(String S1, String S2, int i, int j, Boolean[][] dp) {
+    static Boolean doesMatch(String S1, String S2, int i, int j, Boolean[][] dp) {
         // Base Cases
         if (i < 0 && j < 0)
             return true; // Both strings are empty, and the pattern matches.
@@ -64,18 +68,22 @@ class WildcardMatching_44 {
         }
 
         // If the characters match or S1 has a '?', continue matching the rest of the strings.
-        if (S1.charAt(i) == S2.charAt(j) || S2.charAt(j) == '?')
-            return dp[i][j] = wildcardMatchingUtil(S1, S2, i - 1, j - 1, dp);
-        else {
+        if (S1.charAt(i) == S2.charAt(j) || S2.charAt(j) == '.') {
+            return dp[i][j] = doesMatch(S1, S2, i - 1, j - 1, dp);
+        } else {
             if (S2.charAt(j) == '*') {
-                // Two possibilities when encountering '*':
-                // 1. '*' matches zero characters in S1.
-                // 2. '*' matches one or more characters in S1.
-                return dp[i][j] = (wildcardMatchingUtil(S1, S2, i, j - 1, dp) || wildcardMatchingUtil(S1, S2, i - 1, j, dp));
-            } else {
-                // Characters don't match, and S2[j] is not '*'.
-                return false;
+                if (j - 1 >= 0 && (S1.charAt(i) == S2.charAt(j - 1) || S2.charAt(j - 1) == '.')) {
+                    // Two possibilities when encountering '*':
+                    // 1. '*' matches zero characters in S1.
+                    // 2. '*' matches one or more characters in S1.
+                    return dp[i][j] = (doesMatch(S1, S2, i, j - 2, dp) || doesMatch(S1, S2, i - 1, j, dp));
+                } else if (j - 1 >= 0 && S1.charAt(i) != S2.charAt(j - 1)) {
+                    // '*' matches zero characters in S1.
+                    return dp[i][j] = (doesMatch(S1, S2, i, j - 2, dp));
+                }
             }
+            // If none of the conditions are met, characters don't match.
+            return false;
         }
     }
 }

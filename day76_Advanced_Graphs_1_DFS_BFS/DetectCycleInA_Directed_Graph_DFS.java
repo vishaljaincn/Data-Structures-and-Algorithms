@@ -1,7 +1,12 @@
 package day76_Advanced_Graphs_1_DFS_BFS;
 
 import java.util.ArrayList;
+/*
+Time Complexity: O(V+E)+O(V) , where V = no. of nodes and E = no. of edges. There can be at most V components. So,
+another O(V) time complexity.
 
+Space Complexity: O(2N) + O(N) ~ O(2N): O(2N) for two visited arrays and O(N) for recursive stack space.
+ */
 class DetectCycleInA_Directed_Graph_DFS {
 
     // Helper function to perform DFS and check for cycles

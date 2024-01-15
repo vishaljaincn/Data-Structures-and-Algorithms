@@ -123,7 +123,7 @@ class AlienDictionary_Leetcode_Premium {
 
         return ans;
     }
-    
+
     public static void main(String[] args) {
         // Example usage
         int N = 5, K = 4;

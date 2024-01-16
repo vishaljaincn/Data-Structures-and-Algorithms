@@ -50,7 +50,7 @@ class Disjoint_Set_Union_By_Size {
     }
 
     public static void main(String[] args) {
-        Disjoint_Set_Union_By_Size ds = new Disjoint_Set_Union_By_Size(7);
+        Disjoint_Set_Union_By_Sizes ds = new Disjoint_Set_Union_By_Sizes(7);
 
         // Perform Union-Find operations
         ds.unionBySize(1, 2);

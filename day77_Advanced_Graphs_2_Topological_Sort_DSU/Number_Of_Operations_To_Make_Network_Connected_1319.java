@@ -36,9 +36,8 @@ Explanation: There are not enough cables.
     - 2N for the two arrays (parent and size) of size N used inside the disjoint set.
 */
 
-
-////THIS QUESTION CAN BE SOLVED USING A BASIC DFS OR BFS TRAVERSAL, WE JUST NED TO FIND THE NO OF CONNECTED COMPONENTS,
-////WE USED DISJOINT SET DATA STRUCTURE TO GET FAMILIARIZE WITH IT
+////THIS QUESTION CAN BE SOLVED USING A BASIC DFS OR BFS TRAVERSAL, WE JUST NEED TO FIND THE NO OF CONNECTED COMPONENTS,
+////WE USED DISJOINT SET DATA STRUCTURE TO GET FAMILIAR WITH IT
 
 class Disjoint_Set_Union_By_Sizes {
     private int[] size;      // Array to store the size of each set
@@ -86,19 +85,30 @@ class Disjoint_Set_Union_By_Sizes {
     }
 }
 
-class Number_Of_Operations_To_Make_Network_Connected_1319 {
+class Solution {
     // Function to make connected components and determine the number of extra edges needed
     public int makeConnected(int n, int[][] connections) {
-        // Edge case: If the number of nodes is less than the required number of connections to form a network
-        if (n - 1 > connections.length) {
-            return -1; // It's not possible to form a connected network
+        // Edge case: If the number of nodes is strictly less than the required number of connections to form a network
+        if (connections.length < n - 1) {
+            return -1; // It's not possible to form a fully connected network with fewer connections
         }
 
         Disjoint_Set_Union_By_Sizes dsu = new Disjoint_Set_Union_By_Sizes(n);
 
+        // Variable to keep track of the number of extra edges needed
+        int extraEdges = 0;
+
         // Perform union for each connection
         for (int[] connection : connections) {
-            dsu.unionBySize(connection[0], connection[1]);
+            int u = connection[0];
+            int v = connection[1];
+
+            // If the two nodes are already in the same set, it means an extra edge is needed
+            if (dsu.findUPar(u) == dsu.findUPar(v)) {
+                extraEdges++;
+            } else {
+                dsu.unionBySize(u, v);
+            }
         }
 
         // Count the number of unique parents (representatives)
@@ -109,7 +119,16 @@ class Number_Of_Operations_To_Make_Network_Connected_1319 {
             }
         }
 
-        // The number of operations needed is the number of unique parents minus 1
-        return uniqueParents - 1;
+        // Calculate the minimum number of operations needed
+        int ans = uniqueParents - 1;
+
+        // If the extraEdges are greater than or equal to ans, return ans; otherwise, it's not possible
+        // to form a fully connected network, so return -1
+        if (extraEdges >= ans) {
+            return ans;
+        } else {
+            return -1;
+        }
     }
 }
+

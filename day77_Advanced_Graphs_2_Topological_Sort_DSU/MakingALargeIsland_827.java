@@ -80,7 +80,7 @@ class MakingALargeIsland_827 {
     // Function to find the size of the largest group of connected 1s
     public static int MaxConnection(int grid[][]) {
         int n = grid.length;
-        DisjointSet ds = new DisjointSet(n * n);  // Initialize DisjointSet
+        DisjointSetz ds = new DisjointSetz(n * n);  // Initialize DisjointSet
 
         // Step 1: Connect adjacent 1s using DisjointSet
         for (int row = 0; row < n; row++) {

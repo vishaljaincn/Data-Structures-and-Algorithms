@@ -1,6 +1,5 @@
 package day77_Advanced_Graphs_2_Topological_Sort_DSU;
 /*
-Number of Islands – II – Online Queries – DSU: G-51
 Problem Statement: You are given an n, m which means the row and column of the 2D matrix, and an array of size k
 denoting the number of operations. Matrix elements are 0 if there is water or 1 if there is land. Originally,
 the 2D matrix is all 0 which means there is no land in the matrix. The array has k operator(s) and each operator

@@ -1,4 +1,5 @@
 package day77_Advanced_Graphs_2_Topological_Sort_DSU;
+
 /*
 On a 2D plane, we place n stones at some integer coordinate points. Each coordinate point may have at most one stone.
 A stone can be removed if it shares either the same row or the same column as another stone that has not been removed.
@@ -98,7 +99,7 @@ class Most_Stones_Removed_with_Same_Row_or_Column {
         }
 
         // Create a Disjoint Set with enough nodes to represent rows, columns, and additional offsets
-        DisjointSetz ds = new DisjointSetz(maxRow + maxCol + 2);
+        DisjointSetz ds = new DisjointSetz(maxRow + maxCol + 1);
 
         // Union stones based on their rows and columns
         for (int i = 0; i < n; i++) {
@@ -114,6 +115,7 @@ class Most_Stones_Removed_with_Same_Row_or_Column {
             if (ds.findUPar(i) == i && ds.size[i] > 1) cnt++;
 
         // Return the largest possible number of stones that can be removed
+        // { N(Total No Of Stones) - NUMBER OF VALID CONNECTED COMPONENTS}
         return n - cnt;
     }
 }

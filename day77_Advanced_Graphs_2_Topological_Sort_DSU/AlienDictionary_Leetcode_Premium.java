@@ -2,44 +2,23 @@ package day77_Advanced_Graphs_2_Topological_Sort_DSU;
 /*
 Given a sorted dictionary of an alien language having N words and k starting alphabets of standard dictionary.
 Find the order of characters in the alien language.
-Note: Many orders may be possible for a particular test case, thus you may return any valid order and output will be 1
-if the order of string returned by the function is correct else 0 denoting incorrect string returned.
 
-Example 1:
+Examples:
 
-Input:
-N = 5, K = 4
-dict = {"baa","abcd","abca","cab","cad"}
-Output:
-1
-Explanation:
-Here order of characters is
-'b', 'd', 'a', 'c' Note that words are sorted
-and in the given language "baa" comes before
-"abcd", therefore 'b' is before 'a' in output.
-Similarly we can find other orders.
-Example 2:
+Input: words[] = {“baa”, “abcd”, “abca”, “cab”, “cad”}
+Output: Order of characters is ‘b’, ‘d’, ‘a’, ‘c’
+Explanation: Note that words are sorted and in the given language “baa” comes before “abcd”, therefore ‘b’
+is before ‘a’ in output. Similarly we can find other orders.
 
-Input:
-N = 3, K = 3
-dict = {"caa","aaa","aab"}
-Output:
-1
-Explanation:
-Here order of characters is
-'c', 'a', 'b' Note that words are sorted
-and in the given language "caa" comes before
-"aaa", therefore 'c' is before 'a' in output.
-Similarly we can find other orders.
- */
+Input: words[] = {“caa”, “aaa”, “aab”}
+Output: Order of characters is ‘c’, ‘a’, ‘b’
+*/
 /*
 Time Complexity: O(N*len)+O(K+E), where N is the number of words in the dictionary, ‘len’ is the length up to the index
 where the first inequality occurs, K = no. of nodes, and E = no. of edges.
 
 Space Complexity: O(K) + O(K)+O(K)+O(K) ~ O(4K), O(K) for the indegree array, and O(K) for the queue data structure used
 in BFS(where K = no.of nodes), O(K) for the answer array and O(K) for the adjacency list used in the algorithm.
-
-
  */
 
 import java.util.ArrayList;

@@ -93,7 +93,7 @@ class Solution {
             return -1; // It's not possible to form a fully connected network with fewer connections
         }
 
-        Disjoint_Set_Union_By_Sizes dsu = new Disjoint_Set_Union_By_Sizes(n);
+        Disjoint_Set_Union_By_Sizez dsu = new Disjoint_Set_Union_By_Sizez(n);
 
         // Variable to keep track of the number of extra edges needed
         int extraEdges = 0;

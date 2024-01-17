@@ -30,42 +30,50 @@ The first term is to store the answer
 import java.util.ArrayList;
 import java.util.List;
 
-class DisjointSet {
 
-    List<Integer> parent = new ArrayList<>();
-    List<Integer> size = new ArrayList<>();
+// DisjointSet class for Union-Find operations
+class Disjoint_Set_Union_By_Sizez {
+    private int[] size;      // Array to store the size of each set
+    private int[] parent;    // Array to store the parent of each element in the set
 
-    // Constructor to initialize DisjointSet with 'n' nodes
-    public DisjointSet(int n) {
+    // Constructor to initialize the DisjointSet
+    public Disjoint_Set_Union_By_Sizez(int n) {
+        size = new int[n + 1];   // Index 0 is not used, so the size is n + 1
+        parent = new int[n + 1];
+
+        // Initialize each element as a separate set with size 1
         for (int i = 0; i <= n; i++) {
-            parent.add(i);
-            size.add(1);
+            size[i] = 1;
+            parent[i] = i;
         }
     }
 
-    // Find the representative (root) of the set to which 'node' belongs
+    // Find the representative (root) of the set to which a particular element belongs
     public int findUPar(int node) {
-        if (node == parent.get(node)) {
+        if (node == parent[node]) {
             return node;
         }
-        int ulp = findUPar(parent.get(node));
-        parent.set(node, ulp); // Path compression for optimization
-        return parent.get(node);
+        // Path compression: Make every visited node point directly to the root
+        return parent[node] = findUPar(parent[node]);
     }
 
-    // Union by size to merge sets containing 'u' and 'v'
+    // Union of two sets by size
     public void unionBySize(int u, int v) {
         int ulp_u = findUPar(u);
         int ulp_v = findUPar(v);
-        if (ulp_u == ulp_v) return; // Already in the same set
 
-        // Merge smaller set into the larger set and update size
-        if (size.get(ulp_u) < size.get(ulp_v)) {
-            parent.set(ulp_u, ulp_v);
-            size.set(ulp_v, size.get(ulp_v) + size.get(ulp_u));
+        // If both elements are already in the same set, do nothing
+        if (ulp_u == ulp_v) {
+            return;
+        }
+
+        // Union by size: Attach smaller size tree under the root of the larger size tree
+        if (size[ulp_u] < size[ulp_v]) {
+            parent[ulp_u] = ulp_v;
+            size[ulp_v] += size[ulp_u];
         } else {
-            parent.set(ulp_v, ulp_u);
-            size.set(ulp_u, size.get(ulp_u) + size.get(ulp_v));
+            parent[ulp_v] = ulp_u;
+            size[ulp_u] += size[ulp_v];
         }
     }
 }
@@ -79,7 +87,7 @@ class NumberOfIslands_II_Leetcode_Premium {
 
     // Function to calculate the number of islands after each operation
     public static List<Integer> numOfIslands(int n, int m, int[][] operators) {
-        DisjointSet ds = new DisjointSet(n * m); // Initialize DisjointSet
+        Disjoint_Set_Union_By_Sizez ds = new Disjoint_Set_Union_By_Sizez(n * m); // Initialize DisjointSet
         int[][] vis = new int[n][m]; // Matrix to track visited cells
         int cnt = 0; // Counter for the number of islands
         List<Integer> ans = new ArrayList<>(); // List to store results

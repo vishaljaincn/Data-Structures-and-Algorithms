@@ -2,6 +2,7 @@ package day78_Advanced_Graphs_3_MST_Dijkstra;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
+
 /*
 Problem Statement: Given a weighted, undirected, and connected graph of V vertices and E edges. The task is to find the
 sum of weights of the edges of the Minimum Spanning Tree.
@@ -85,7 +86,28 @@ public class Prims_Algorithm_MST_Priority_Queue {
         // Return the total weight of the minimum spanning tree
         return totalSum;
     }
+
+    public static void main(String[] args) {
+        Prims_Algorithm_MST_Priority_Queue primSolver = new Prims_Algorithm_MST_Priority_Queue();
+
+        // Example graph represented by an adjacency matrix
+        int[][] graph = {
+                {0, 1, 2},
+                {1, 2, 3},
+                {0, 2, 4}
+        };
+
+        // Number of nodes in the graph
+        int numNodes = 3;
+
+        // Call the solve method to find the minimum spanning tree weight
+        int minimumSpanningTreeWeight = primSolver.solve(numNodes, graph);
+
+        // Print the result
+        System.out.println("Total weight of the minimum spanning tree: " + minimumSpanningTreeWeight);
+    }
 }
+
 /*
 ////////////TAKE U FORWARD WEBPAGE CONTENT BELOW/////////////
 Approach:

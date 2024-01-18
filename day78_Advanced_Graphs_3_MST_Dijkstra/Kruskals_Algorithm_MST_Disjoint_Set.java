@@ -19,7 +19,6 @@ unionByRank() is used) which result in the first two terms O(N).
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 // Disjoint Set Union implementation based on size
 class Disjoint_Set_Union_By_Size {
@@ -95,11 +94,10 @@ class PairComparator implements Comparator<Pair> {
 class Kruskals_Algorithm_MST {
     // Method to solve the problem
     public int solve(int A, int[][] B) {
-        long minCost = 0;
-        long m = 1000000007;
+        int minCost = 0;
 
         // Build edge list
-        List<Pair> list = new ArrayList<>();
+        ArrayList<Pair> list = new ArrayList<>();
         for (int i = 0; i < B.length; i++) {
             int u = B[i][0];
             int v = B[i][1];
@@ -117,13 +115,13 @@ class Kruskals_Algorithm_MST {
         for (Pair edge : list) {
             // Union method combines 2 different components at a given time
             if (dsu.unionBySize(edge.u, edge.v)) {
-                // If edge is considered, add weight to cost
-                minCost = ((minCost % m) + ((long) edge.weight % m)) % m;
+                minCost += edge.weight;
             }
         }
 
-        return (int) minCost;
+        return minCost;
     }
+
 
     public static void main(String[] args) {
         // Example usage of Kruskal's Algorithm for Minimum Spanning Tree

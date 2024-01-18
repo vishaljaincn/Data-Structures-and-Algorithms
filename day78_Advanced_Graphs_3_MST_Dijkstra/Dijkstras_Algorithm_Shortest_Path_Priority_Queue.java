@@ -5,7 +5,7 @@ lists containing two integers where the first integer of each list j denotes the
 integers corresponds to the weight of that edge. You are given the source vertex S and You have to Find the shortest
 distance of all the vertex from the source vertex S. You have to return a list of integers denoting the shortest distance
 between each node and the Source vertex S.
-Note: The Graph doesn’t contain any negative weight cycle.
+Note: The Graph does not contain any negative weight cycle.
 Example 1:
 Input:
 V = 2

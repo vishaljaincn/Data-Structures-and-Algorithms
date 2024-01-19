@@ -4,6 +4,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
+/*
+You are given a weighted undirected graph having n+1 vertices numbered from 0 to n and m edges describing there are
+edges between a to b with some weight, find the shortest path between the vertex 1 and the vertex n, and if the path
+does not exist then return a list consisting of only -1.
+ */
+/*
+Time Complexity: O( E log(V) ) { for Dijkstra’s Algorithm } + O(V) { for backtracking in order to find the parent for
+each node } Where E = Number of edges and V = Number of Nodes.
+
+Space Complexity: O( |E| + |V| ) { for priority queue and dist array } + O( |V| ) { for storing the final path }
+Where E = Number of edges and V = Number of Nodes.
+ */
 // Class representing a pair of vertex and its weight
 class Pairz {
     int vertex;

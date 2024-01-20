@@ -57,7 +57,7 @@ class Tuplee implements Comparable<Tuplee> {
     }
 }
 
-public class PathWithMinimumEffort {
+public class PathWithMinimumEffort_1631 {
 
     // Main function to find the minimum effort path
     public int minimumEffortPath(int[][] heights) {
@@ -120,7 +120,7 @@ public class PathWithMinimumEffort {
 
     // Main method for testing
     public static void main(String[] args) {
-        PathWithMinimumEffort solution = new PathWithMinimumEffort();
+        PathWithMinimumEffort_1631 solution = new PathWithMinimumEffort_1631();
         int[][] heights = {
                 {1, 2, 2},
                 {3, 8, 2},

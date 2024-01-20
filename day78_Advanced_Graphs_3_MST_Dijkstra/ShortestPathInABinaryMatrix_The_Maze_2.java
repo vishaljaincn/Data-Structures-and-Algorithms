@@ -87,6 +87,7 @@ public class ShortestPathInABinaryMatrix_The_Maze_2 {
             Tuplez current = pq.poll(); // Retrieve the tuple with the smallest distance
             int row = current.row;
             int col = current.col;
+            int currentDistance = current.distance;
 
             // Explore possible moves in four directions
             for (int i = 0; i < 4; i++) {
@@ -106,8 +107,8 @@ public class ShortestPathInABinaryMatrix_The_Maze_2 {
                 newCol -= deltaCols[i];
 
                 // Update the distance if the new path is shorter
-                if (current.distance + steps < distances[newRow][newCol]) {
-                    distances[newRow][newCol] = current.distance + steps;
+                if (currentDistance + steps < distances[newRow][newCol]) {
+                    distances[newRow][newCol] = currentDistance + steps;
 
                     // Check if the destination is reached
                     if (newRow == destination[0] && newCol == destination[1]) {

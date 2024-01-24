@@ -27,7 +27,7 @@ Explanation: We can partition the nodes into two sets: {0, 2} and {1, 3}.
 Time Complexity: O(V + 2E), Where V = Vertices, 2E is for total degrees as we traverse all adjacent nodes.
 
 Space Complexity: O(3V) ~ O(V), Space for queue data structure, colour array and an adjacency list.
- */
+*/
 
 import java.util.ArrayList;
 import java.util.Arrays;

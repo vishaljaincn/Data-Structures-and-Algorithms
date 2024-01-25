@@ -1,5 +1,7 @@
 package primerContent;
 
+import java.util.Arrays;
+
 public class Basic {
     public static void main(String[] args) {
 //        long l = 100000000000000L;
@@ -33,13 +35,12 @@ public class Basic {
 //        System.out.println(max);
 //        System.out.println(arr[3]);
 //        System.out.println(max);
-        System.out.println(Math.abs(7-9));
-        StringBuilder sb=new StringBuilder();
-        sb.append("12345");
-        long n1=Long.parseLong(sb.toString());
-        sb.append("lol");
-        System.out.println(sb);
-        System.out.println();
-
+//        System.out.println(Math.abs(7-9));
+//        StringBuilder sb=new StringBuilder();
+//        sb.append("12345");
+//        long n1=Long.parseLong(sb.toString());
+//        sb.append("lol");
+//        System.out.println(sb);
+//        System.out.println();
     }
 }

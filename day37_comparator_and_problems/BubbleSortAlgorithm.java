@@ -13,7 +13,7 @@ public class BubbleSortAlgorithm {
 
             // Inner loop: Compare and swap adjacent elements
             for (int j = i + 1; j < n; j++) {
-                if (A[i] > A[j]) {
+                if (A[j] < A[i]) {
                     // Swap the elements if they are in the wrong order
                     int temp = A[i];
                     A[i] = A[j];

@@ -1,6 +1,7 @@
 package day40_Advanced_DSA_Binary_Search_2;
 
 public class MedianOfTwoSortedArrays {
+    // Function to find the median of two sorted arrays
     public static double findMedianSortedArrays(int[] A, int[] B) {
         // Find the sizes of the two input arrays
         int n1 = A.length;
@@ -19,12 +20,16 @@ public class MedianOfTwoSortedArrays {
         int i = 0, j = 0;
         while (i < n1 && j < n2) {
             if (A[i] <= B[j]) {
+                // Update the element at ind1 position
                 if (cnt == ind1) ind1Element = A[i];
+                // Update the element at ind2 position
                 if (cnt == ind2) ind2Element = A[i];
                 cnt++;
                 i++;
             } else {
+                // Update the element at ind1 position
                 if (cnt == ind1) ind1Element = B[j];
+                // Update the element at ind2 position
                 if (cnt == ind2) ind2Element = B[j];
                 cnt++;
                 j++;
@@ -33,13 +38,17 @@ public class MedianOfTwoSortedArrays {
 
         // Copy any remaining elements from A and B
         while (i < n1) {
+            // Update the element at ind1 position
             if (cnt == ind1) ind1Element = A[i];
+            // Update the element at ind2 position
             if (cnt == ind2) ind2Element = A[i];
             cnt++;
             i++;
         }
         while (j < n2) {
+            // Update the element at ind1 position
             if (cnt == ind1) ind1Element = B[j];
+            // Update the element at ind2 position
             if (cnt == ind2) ind2Element = B[j];
             cnt++;
             j++;
@@ -53,6 +62,7 @@ public class MedianOfTwoSortedArrays {
         return (double) (ind1Element + ind2Element) / 2.0;
     }
 
+    // Main method to test the findMedianSortedArrays function
     public static void main(String[] args) {
         int[] A = {1, 4, 7, 10, 12};
         int[] B = {2, 3, 6, 15};

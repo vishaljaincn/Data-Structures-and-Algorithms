@@ -14,7 +14,7 @@ class ListNode {
     }
 }
 
-public class MiddleOfALinkedListUsingSlowAndFastPointers {
+public class MiddleOfALinkedListUsingSlowAndFastPointers_876 {
     // Function to find the middle node of a linked list using slow and fast pointers.
     public ListNode middleNode(ListNode head) {
         ListNode slow = head, fast = head;

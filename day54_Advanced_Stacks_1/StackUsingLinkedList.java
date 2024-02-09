@@ -2,8 +2,8 @@ package day54_Advanced_Stacks_1;
 
 // Definition of a ListNode to be used in the linked list
 class ListNode {
-    int data;     // Data stored in the node
-    ListNode next;    // Reference to the next node in the linked list
+    int data;        // Data stored in the node
+    ListNode next;   // Reference to the next node in the linked list
 
     public ListNode(int data) {
         this.data = data;
@@ -19,6 +19,7 @@ public class StackUsingLinkedList {
         head = null;
     }
 
+    // Time Complexity: O(1)
     // Method to push (add) a new element onto the stack
     public void push(int value) {
         ListNode newNode = new ListNode(value); // Create a new node with the provided value
@@ -30,6 +31,7 @@ public class StackUsingLinkedList {
         }
     }
 
+    // Time Complexity: O(1)
     // Method to pop (remove) the top element from the stack
     public int pop() {
         if (isEmpty()) {
@@ -41,6 +43,7 @@ public class StackUsingLinkedList {
         return poppedValue;          // Return the popped value
     }
 
+    // Time Complexity: O(1)
     // Method to peek (view) the top element without removing it
     public int peek() {
         if (isEmpty()) {
@@ -50,6 +53,7 @@ public class StackUsingLinkedList {
         return head.data; // Return the data of the head node
     }
 
+    // Time Complexity: O(1)
     // Method to check if the stack is empty
     public boolean isEmpty() {
         return head == null; // If the head is null, the stack is empty

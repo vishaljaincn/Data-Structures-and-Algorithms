@@ -11,6 +11,7 @@ public class StackUsingArray {
         top = -1;                 // Initialize the top index to -1 (empty stack)
     }
 
+    // Time Complexity: O(1)
     public void push(int value) {
         if (isFull()) {
             System.out.println("Stack is full. Cannot push " + value);
@@ -19,6 +20,7 @@ public class StackUsingArray {
         stackArray[++top] = value; // Increment the top index and add the value to the stack
     }
 
+    // Time Complexity: O(1)
     public int pop() {
         if (isEmpty()) {
             System.out.println("Stack is empty. Cannot pop.");
@@ -27,6 +29,7 @@ public class StackUsingArray {
         return stackArray[top--]; // Return and decrement the top index
     }
 
+    // Time Complexity: O(1)
     public int peek() {
         if (isEmpty()) {
             System.out.println("Stack is empty. Cannot peek.");
@@ -35,14 +38,17 @@ public class StackUsingArray {
         return stackArray[top]; // Return the top element without removing it
     }
 
+    // Time Complexity: O(1)
     public boolean isEmpty() {
         return (top == -1); // Check if the stack is empty (top index is -1)
     }
 
+    // Time Complexity: O(1)
     public boolean isFull() {
         return (top == maxSize - 1); // Check if the stack is full (top index is at the maximum)
     }
 
+    // Time Complexity: O(1)
     public int size() {
         return top + 1; // Calculate the size of the stack (number of elements)
     }

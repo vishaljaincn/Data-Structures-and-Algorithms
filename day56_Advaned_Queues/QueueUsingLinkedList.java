@@ -22,6 +22,7 @@ class QueueUsingLinkedList {
     }
 
     // Method to add an element to the queue
+    // Time Complexity: O(1)
     public void enqueue(int data) {
         ListNode newNode = new ListNode(data);
 
@@ -37,6 +38,7 @@ class QueueUsingLinkedList {
     }
 
     // Method to remove an element from the queue
+    // Time Complexity: O(1)
     public int dequeue() {
         // If the queue is empty, return -1 (or throw an exception)
         if (isEmpty()) {
@@ -57,11 +59,13 @@ class QueueUsingLinkedList {
     }
 
     // Method to check if the queue is empty
+    // Time Complexity: O(1)
     public boolean isEmpty() {
         return front == null;
     }
 
     // Method to get the front element without removing it
+    // Time Complexity: O(1)
     public int peek() {
         // If the queue is empty, return -1 (or throw an exception)
         if (isEmpty()) {

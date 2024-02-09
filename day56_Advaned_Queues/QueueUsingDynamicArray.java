@@ -18,12 +18,14 @@ public class QueueUsingDynamicArray {
     }
 
     // Method to enqueue (add) an item to the queue
+    // Time Complexity: O(1)
     public void enqueue(int item) {
         rear++;
         array.add(item);
     }
 
     // Method to dequeue (remove) an item from the queue
+    // Time Complexity: O(1)
     public int dequeue() {
         // Check if the queue is empty
         if (isEmpty()) {
@@ -37,6 +39,7 @@ public class QueueUsingDynamicArray {
     }
 
     // Method to peek at the front element of the queue without removing it
+    // Time Complexity: O(1)
     public int peek() {
         // Check if the queue is empty
         if (isEmpty()) {
@@ -48,14 +51,14 @@ public class QueueUsingDynamicArray {
     }
 
     // Method to check if the queue is empty
+    // Time Complexity: O(1)
     public boolean isEmpty() {
-
         return front > rear;
     }
 
     // Method to get the size of the queue
+    // Time Complexity: O(1)
     public int size() {
-
         return rear - front + 1;
     }
 
@@ -78,4 +81,3 @@ public class QueueUsingDynamicArray {
         System.out.println("Size: " + queue.size());
     }
 }
-

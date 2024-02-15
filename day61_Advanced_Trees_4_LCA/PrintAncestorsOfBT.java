@@ -14,11 +14,9 @@ class PrintAncestorsOfBT {
     and returns true, otherwise returns false. */
     static boolean printAncestors(TreeNode node, int target) {
         /* base cases */
-        if (node == null)
-            return false;
+        if (node == null) return false;
 
-        if (node.val == target)
-            return true;
+        if (node.val == target) return true;
 
         /* If target is present in either left or right subtree
         of this node, then print this node */

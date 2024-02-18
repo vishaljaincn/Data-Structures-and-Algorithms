@@ -1,48 +1,52 @@
 package day2_Introduction_to_arrays;
 //Google And Amazon
-import java.util.Arrays;
 
-public class RotateAnArrayFromLastToFirstK_Times {
-    public static int [] rotateAnArrayFromLastToFirstK_Times(int arr[],int k)
-    {
+class RotateAnArrayFromLastToFirstK_Times {
+    public void rotate(int[] arr, int k) {
         int n = arr.length;
+
+        // Adjust k if it's greater than the array length
         if (k > n) {
             k = k % n;
         }
-        if (n == k||k==0) {
-            return arr;
+
+        // If k is equal to 0 or equal to the array length, no rotation needed
+        if (n == k || k == 0) {
+            return;
         }
 
         // Reversing the entire array
         int temp;
+        int i = 0;
         int j = n - 1;
-        for (int i = 0; i < j; i++, j--) {
+        while (i < j) {
             temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
+            i++;
+            j--;
         }
 
         // Reversing the first k elements
+        i = 0;
         j = k - 1;
-        for (int i = 0; i < j; i++, j--) {
+        while (i < j) {
             temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
+            i++;
+            j--;
         }
 
         // Reversing the remaining elements after k
-        int x = n - 1;
-        for (int i = k; i < x; i++, x--) {
+        i = k;
+        j = n - 1;
+        while (i < j) {
             temp = arr[i];
-            arr[i] = arr[x];
-            arr[x] = temp;
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
         }
-
-        return arr;
-    }
-
-    public static void main(String[] args) {
-        int arr[]={3,-2,1,4,6,9,8};
-        System.out.println(Arrays.toString(rotateAnArrayFromLastToFirstK_Times(arr,3)));
     }
 }

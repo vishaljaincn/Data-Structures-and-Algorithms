@@ -15,8 +15,7 @@ Explanation: There exist two distinct solutions to the 4-queens puzzle as shown 
  */
 /*
 Time Complexity: Exponential in nature since we are trying out all ways, to be precise it is O(N! * N).
-                 total N! function calls and loop of N size is running for each function call.(and also validate method takes
-                 3N time, i.e, overall 'N' TC)
+                 total N! function calls and validate method takes N time
 
 Space Complexity: O(N) Maximum Depth of the recursion tree(auxiliary space).
  */

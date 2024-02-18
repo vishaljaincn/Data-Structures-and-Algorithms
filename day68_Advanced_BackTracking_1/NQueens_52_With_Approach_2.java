@@ -14,8 +14,8 @@ Input: n = 1
 Output: 1
 */
 /*
-Time Complexity: Exponential in nature since we are trying out all ways, to be precise it is O(N! * N).
-                 total N! function calls and loop of N size is running for each function call.
+Time Complexity: Exponential in nature since we are trying out all ways, to be precise it is O(N!).
+                 total N! function calls
 
 Space Complexity: O(N) Maximum Depth of the recursion tree(auxiliary space).
 */

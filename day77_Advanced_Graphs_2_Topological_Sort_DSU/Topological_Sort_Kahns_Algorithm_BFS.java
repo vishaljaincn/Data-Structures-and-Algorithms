@@ -40,8 +40,7 @@ class Topological_Sort_Kahns_Algorithm_BFS {
         // Perform BFS until the queue is empty
         while (!q.isEmpty()) {
             // Dequeue a vertex with in-degree 0
-            int node = q.peek();
-            q.remove();
+            int node = q.poll();
 
             // Add the dequeued vertex to the topological order
             topo[i++] = node;

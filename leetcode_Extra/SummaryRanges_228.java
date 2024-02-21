@@ -34,7 +34,7 @@ import java.util.List;
 
 // Time complexity: O(n) - where n is the length of the input array
 // Space complexity: O(1) - constant space used, excluding the result list
-class SummaryRanges_221 {
+class SummaryRanges_228 {
     // Function to return the summary of ranges in a sorted array
     public List<String> summaryRanges(int[] nums) {
         List<String> result = new ArrayList<>();

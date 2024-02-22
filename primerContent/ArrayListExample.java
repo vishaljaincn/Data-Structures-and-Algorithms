@@ -1,7 +1,6 @@
 package primerContent;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ArrayListExample {
     public static int sum(ArrayList<Integer> arr)

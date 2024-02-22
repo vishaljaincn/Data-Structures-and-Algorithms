@@ -16,8 +16,8 @@ class DesignHashMap_706 {
         // Initialize all values to -1, assuming -1 is not a valid value in this HashMap
         Arrays.fill(values, -1);
 
-        // Initialize all keys to a negative value
-        Arrays.fill(keys, Integer.MIN_VALUE);
+        // Initialize all keys to -1
+        Arrays.fill(keys, -1);
     }
 
     /**
@@ -58,7 +58,7 @@ class DesignHashMap_706 {
      * Time Complexity: O(1)
      */
     public boolean containss(int key) {
-        return keys[key] != Integer.MIN_VALUE;
+        return keys[key] != -1;
     }
 }
 

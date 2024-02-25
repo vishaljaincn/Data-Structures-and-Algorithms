@@ -28,7 +28,7 @@ import java.util.Set;
 
 //Time Complexity - O(log N) or O(1), Even for Int_Max ,the sum of squares of all the digits is not more than 1000
 //Space Complexity - O(log N) or O(1)
-class SoluHappyNumber_202tion {
+class HappyNumber_202 {
     public boolean isHappy(int n) {
         // Set to detect cycles
         Set<Integer> seen = new HashSet<>();

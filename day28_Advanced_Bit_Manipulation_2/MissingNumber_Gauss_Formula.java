@@ -1,4 +1,4 @@
-package day28_Bit_Manipulation_2;
+package day28_Advanced_Bit_Manipulation_2;
 
 /*
 Given an array A containing n distinct numbers in the range [0, n],

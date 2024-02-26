@@ -31,57 +31,53 @@ Space Complexity: O(1)
 Reason: We are not using extra space.
  */
 
-class HouseRobber_2_213 {
-    // Main method to calculate the maximum amount that can be robbed in a circular arrangement of houses.
+public class HouseRobber_2_213 {
+
+    // Main function to solve the House Robber problem for circular arrangement
     public int rob(int[] nums) {
-        int n = nums.length;
-
-        // If there is only one house, return the value of that house.
-        if (n == 1)
-            return nums[0];
-
-        // Create two arrays to represent two cases: one where the first house is included, and one where it is excluded.
-        int[] nums1 = new int[n];
-        int[] nums2 = new int[n];
-
-        // Populate the two arrays based on the original input array.
-        for (int i = 0; i < n; i++) {
-            if (i != 0)
-                nums1[i] = nums[i];
-            if (i != n - 1)
-                nums2[i] = nums[i];
+        if (nums == null || nums.length == 0) {
+            return 0;
         }
 
-        // Calculate the maximum amount that can be robbed in each case and return the maximum of the two.
-        int ans1 = solve(nums1);
-        int ans2 = solve(nums2);
+        int n = nums.length;
 
-        return Math.max(ans1, ans2);
+        // If there is only one house, return its value
+        if (n == 1) {
+            return nums[0];
+        }
+
+        // Case 1: Rob houses from the first house to the second-to-last house
+        int maxSum1 = robHelper(nums, 0, n - 2);
+
+        // Case 2: Rob houses from the second house to the last house
+        int maxSum2 = robHelper(nums, 1, n - 1);
+
+        // Return the maximum result between the two cases
+        return Math.max(maxSum1, maxSum2);
     }
 
-    // Helper method to calculate the maximum amount that can be robbed in a linear arrangement of houses.
-    public static int solve(int[] nums) {
-        int n = nums.length;
+    // Helper function to apply the House Robber algorithm on a subarray
+    private int robHelper(int[] nums, int start, int end) {
+        int n = end - start + 1;
 
-        // Initialize variables to keep track of the maximum amounts at the current and previous positions.
-        int prev = nums[0];
-        int prev2 = 0;
-
-        // Iterate through the array starting from the second element.
-        for (int i = 1; i < n; i++) {
-            // Calculate the maximum amount by either picking the current element or not picking it.
-            int pick = nums[i];
-            if (i > 1)
-                pick += prev2;
-            int notPick = 0 + prev;
-
-            // Update the current maximum amount and move the pointers for the next iteration.
-            int curr = Math.max(pick, notPick);
-            prev2 = prev;
-            prev = curr;
+        // If there is only one house in the subarray, return its value
+        if (n == 1) {
+            return nums[start];
         }
 
-        // The final value of 'prev' now holds the maximum amount that can be robbed.
-        return prev;
+        // Create an array to store the maximum sum for each house in the subarray
+        int[] maxSum = new int[n];
+        maxSum[0] = nums[start];
+        maxSum[1] = Math.max(nums[start], nums[start + 1]);
+
+        // Apply the House Robber algorithm on the subarray
+        for (int i = 2; i < n; i++) {
+            // Choose the maximum between the sum excluding the current house
+            // and the sum including the current house
+            maxSum[i] = Math.max(maxSum[i - 1], maxSum[i - 2] + nums[start + i]);
+        }
+
+        // Return the maximum sum for the last house in the subarray
+        return maxSum[n - 1];
     }
 }

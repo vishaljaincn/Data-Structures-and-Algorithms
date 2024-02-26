@@ -22,47 +22,33 @@ Time Complexity: O(N)
 
 Reason: We are running a simple iterative loop
 
-Space Complexity: O(1)
+Space Complexity: O(n)
 
-Reason: We are not using any extra space.
+Reason: We are using memoization array.
  */
 
-class HouseRobber_1_198 {
-    // This function finds the maximum possible sum of non-adjacent elements in an array
-    // using a more space-efficient dynamic programming approach.
-    static int solve(int n, int[] arr) {
-        // Initialize variables to keep track of the maximum sums at the current and previous positions.
-        int prev = arr[0];
-        int prev2 = 0;
+public class HouseRobber_1_198 {
 
-        // Iterate through the array starting from the second element.
-        for (int i = 1; i < n; i++) {
-            // Calculate the maximum sum by either picking the current element or not picking it.
-            int pick = arr[i];
-
-            // If there are at least two elements before the current element, add the value from prev2.
-            if (i > 1) {
-                pick += prev2;
-            }
-
-            // The non-pick option is to use the maximum sum from the previous position.
-            int nonPick = prev;
-
-            // Calculate the maximum sum for the current position and update prev and prev2.
-            int cur_i = Math.max(pick, nonPick);
-            prev2 = prev;
-            prev = cur_i;
+    public int rob(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
         }
 
-        // The 'prev' variable now holds the maximum possible sum.
-        return prev;
-    }
+        int n = nums.length;
+        if (n == 1) {
+            return nums[0]; // If there is only one house, return its value
+        }
 
-    // This function initializes the dp array and calls the solver function.
-    static int rob(int[] arr) {
-        int n = arr.length;
+        int[] maxSum = new int[n];
+        maxSum[0] = nums[0]; // Maximum sum for the first house is the value of the first house
+        maxSum[1] = Math.max(nums[0], nums[1]); // Maximum sum for the second house is the maximum of the first two houses
 
-        // Call the solve function to find the maximum possible sum.
-        return solve(n, arr);
+        // Iterate from the third house to the end of the array
+        for (int i = 2; i < n; i++) {
+            // Choose the maximum between the sum excluding the current house and the sum including the current house
+            maxSum[i] = Math.max(maxSum[i - 1], maxSum[i - 2] + nums[i]);
+        }
+
+        return maxSum[n - 1]; // The final result is the maximum sum for the last house
     }
 }

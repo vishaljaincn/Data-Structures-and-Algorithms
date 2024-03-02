@@ -39,14 +39,19 @@ class Course_Schedule_207_Kahns_Algorithm {
         }
 
         // Build the graph based on prerequisites
-        int[] indegree = new int[numCourses];
         for (int[] prerequisite : prerequisites) {
             int course = prerequisite[0];
             int prerequisiteCourse = prerequisite[1];
             adj.get(prerequisiteCourse).add(course);
-            indegree[course]++;
         }
 
+        // Calculate in-degrees for each vertex
+        int[] indegree = new int[numCourses];
+        for (int i = 0; i < numCourses; i++) {
+            for (int it : adj.get(i)) {
+                indegree[it]++;
+            }
+        }
         // Queue to store vertices with in-degree 0
         Queue<Integer> q = new LinkedList<>();
 

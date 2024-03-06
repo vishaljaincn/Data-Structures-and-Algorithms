@@ -1,35 +1,43 @@
-package day37_comparator_and_problems;// Importing the Arrays class to use the toString method for printing arrays
-
-import java.util.Arrays;
+package day37_comparator_and_problems;
 
 public class BubbleSortAlgorithm {
 
-    // Function to perform Bubble Sort
-    public static void bubbleSort(int A[]) {
-        int n = A.length; // Get the length of the array
-
-        // Outer loop: Iterate through each element in the array
-        for (int i = 0; i < n; i++) {
-
-            // Inner loop: Compare and swap adjacent elements
-            for (int j = i + 1; j < n; j++) {
-                if (A[j] < A[i]) {
-                    // Swap the elements if they are in the wrong order
-                    int temp = A[i];
-                    A[i] = A[j];
-                    A[j] = temp;
+    // Function to perform bubble sort on an array
+    static void bubbleSort(int[] arr, int n) {
+        // Outer loop for the number of passes
+        for (int i = n - 1; i >= 0; i--) {
+            // Inner loop for each pass
+            for (int j = 0; j <= i - 1; j++) {
+                // Compare adjacent elements and swap them if they are in the wrong order
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
         }
+
+        // Display the sorted array after bubble sort
+        System.out.println("After bubble sort: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
     }
 
-    public static void main(String[] args) {
-        int A[] = {3, 2, 5, 6, 4, 1};
+    public static void main(String args[]) {
+        // Example array
+        int arr[] = {13, 46, 24, 52, 20, 9};
+        int n = arr.length;
+
+        // Display the original array before sorting
+        System.out.println("Before using Bubble Sort: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
 
         // Call the bubbleSort function to sort the array
-        bubbleSort(A);
-
-        // Print the sorted array using Arrays.toString method
-        System.out.println(Arrays.toString(A));
+        bubbleSort(arr, n);
     }
 }

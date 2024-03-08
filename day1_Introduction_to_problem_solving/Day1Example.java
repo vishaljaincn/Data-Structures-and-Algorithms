@@ -4,7 +4,13 @@ class Day1Example {
     // Member variable to count factors
     int count = 0;
 
-    // Method to count factors of a number and print them
+    /**
+     * Method to count factors of a number and print them.
+     * Time complexity: O(sqrt(n))
+     *
+     * @param n The number to count factors for.
+     * @return The count of factors.
+     */
     int countFactors(int n) {
         for (int i = 1; i * i <= n; i++) {
             // Check if i is a factor of n
@@ -23,7 +29,13 @@ class Day1Example {
         return count;
     }
 
-    // Method to check if a number is prime
+    /**
+     * Method to check if a number is prime.
+     * Time complexity: O(sqrt(n))
+     *
+     * @param n The number to check for primality.
+     * @return True if the number is prime, false otherwise.
+     */
     boolean checkPrime(int n) {
         // Call countFactors to get the count of factors
         int a = countFactors(n);
@@ -34,7 +46,13 @@ class Day1Example {
         return false;
     }
 
-    // Method to find the square root of a perfect square
+    /**
+     * Method to find the square root of a perfect square.
+     * Time complexity: O(sqrt(n))
+     *
+     * @param n The perfect square for which to find the square root.
+     * @return The square root of the perfect square, or -1 if n is not a perfect square.
+     */
     int squareRootOfAPerfectSquare(int n) {
         for (int i = 1; i * i <= n; i++) {
             // Check if i is the square root of n
@@ -46,7 +64,13 @@ class Day1Example {
         return -1;
     }
 
-    // Method to find the square root of a non-perfect square
+    /**
+     * Method to find the square root of a non-perfect square.
+     * Time complexity: O(sqrt(n))
+     *
+     * @param n The non-perfect square for which to find the square root.
+     * @return The floor value of the square root of the non-perfect square.
+     */
     int squareRootOfANonPerfectSquare(int n) {
         int ans = 0;
         for (int i = 1; i * i <= n; i++) {
@@ -56,7 +80,13 @@ class Day1Example {
         return ans;
     }
 
-    // Method to count the number of times a number needs to be divided by 2 until the quotient is 1
+    /**
+     * Method to count the number of times a number needs to be divided by 2 until the quotient is 1.
+     * Time complexity: O(log(n))
+     *
+     * @param n The number for which to count the divisions.
+     * @return The count of divisions needed.
+     */
     int countNoOfTimesWeNeedToDivideGivenNoByTwoTillWeGet1AsQuotient(int n) {
         int count = 0;
         while (n > 1) {

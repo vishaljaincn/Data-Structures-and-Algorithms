@@ -24,7 +24,7 @@ public class ThreeSum_Q_No_15_LeetCode {
         // Iterate through the array to find triplets
         for (int i = 0; i < n - 2; i++) {
             // Skip duplicate elements by checking if the current element is the same as the previous
-            if (i != 0 && A[i] == A[i - 1]) {
+            if (i > 0 && A[i] == A[i - 1]) {
                 continue;
             }
 

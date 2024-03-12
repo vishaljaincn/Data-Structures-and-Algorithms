@@ -52,6 +52,17 @@ public class SubsetPartitionWithGivenDifferenceCounter {
                s2 = (totalSum - D) / 2
 */
 
+        /*
+        Edge Cases:
+
+The following edge cases need to be handled:
+
+As the array elements are positive integers including zero, we don’t want to find the case when S2 is
+negative or we can say that totSum is lesser than D, therefore if totSum<D, we simply return 0.
+S2 can’t be a fraction, as all elements are integers, therefore if totSum – D is odd, we can return 0.
+
+         */
+
         // Checking for edge cases
         // Ensure that the totalSum minus the target difference is non-negative
         if (totalSum - d < 0) return 0;

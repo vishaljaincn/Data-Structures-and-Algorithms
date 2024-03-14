@@ -54,7 +54,7 @@ class WildcardMatching_44 {
         if (i < 0 && j < 0)
             return true; // Both strings are empty, and the pattern matches.
         if (j < 0 && i >= 0)
-            return false; // S2 is empty, check if remaining characters in S1 are all '*'.
+            return false; // If String S2 is exhausted but String S1 is still pending, return false
         if (i < 0 && j >= 0)
             return isAllStars(S2, j); // S1 is empty, check if remaining characters in S2 are all '*'.
 

@@ -36,7 +36,7 @@ exection -> execution (insert 'u')
 
 import java.util.Arrays;
 
-class EditDistance {
+class EditDistance_72 {
 
     // Function to calculate the minimum edit distance between two strings
     static int minDistance(String S1, String S2) {

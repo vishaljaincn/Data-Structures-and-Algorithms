@@ -17,7 +17,7 @@ Output: 1
  */
 // Time complexity: O(n^2)
 // Space complexity: O(n)
-public class LengthOfLongestIncreasingSubSequence_Tabulation_300 {
+public class LengthOfLongestIncreasingSubSequence_Tabulation_300_Not_Revised {
 
     // DO NOT MODIFY THE ARRAY. IT IS READ ONLY
     public int lis(final int[] A) {

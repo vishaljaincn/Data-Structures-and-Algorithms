@@ -18,42 +18,53 @@ Output: 1
  */
 // Time Complexity: O(n^2) + O(n logn) - Two nested loops iterating through each envelope, and n logn for sorting
 // Space Complexity: O(n) - Space required for the dp array
-public class RussianDollEnvelopes_354 {
-    // Method to calculate the maximum number of envelopes that can be Russian doll-ed
-    public int solve(int[][] envelopes) {
-        int n = envelopes.length;
-
-        // Array to store the length of the maximum increasing subsequence ending at each index
-        int dp[] = new int[n];
-
-        // Sorting the envelopes based on their widths in ascending order
+class RussianDollEnvelopes_354 {
+    // Function to find the length of the longest increasing subsequence of envelopes
+    static int russianDollEnvelopes(int[][] envelopes) {
+        // Sort the envelopes based on their widths
         Arrays.sort(envelopes, (a, b) -> a[0] - b[0]);
 
-        // Initialize the answer to 1, as each envelope can be considered as a sequence of length 1
-        int ans = 1;
+        // Create a memoization table to store results for subproblems
+        int[][] dp = new int[envelopes.length][envelopes.length];
 
-        // Iterate through each envelope
-        for (int i = 0; i < n; i++) {
-            // Variable to store the length of the maximum increasing subsequence ending at index i
-            int maxSeq = 0;
-
-            // Iterate through the envelopes before the current index
-            for (int j = 0; j < i; j++) {
-                // Check if the j-th envelope can fit inside the i-th envelope
-                if (envelopes[j][0] < envelopes[i][0] && envelopes[j][1] < envelopes[i][1]) {
-                    // Update the length of the maximum increasing subsequence ending at index j
-                    maxSeq = Math.max(maxSeq, dp[j]);
-                }
-            }
-
-            // Length of the maximum increasing subsequence ending at index i is 1 plus the calculated maxSeq
-            dp[i] = 1 + maxSeq;
-
-            // Update the overall answer with the maximum length of increasing subsequences
-            ans = Math.max(ans, dp[i]);
+        // Initialize dp array with -1 to mark states as not calculated yet
+        for (int[] row : dp) {
+            Arrays.fill(row, -1);
         }
 
-        // Return the final answer
-        return ans;
+        // Start the recursive function with initial values
+        return maxRussianDolls(envelopes, 0, -1, dp);
+    }
+
+    // Recursive function to find the maximum number of envelopes that can be Russian dolled
+    static int maxRussianDolls(int[][] envelopes, int currentIndex, int prevIndex, int[][] dp) {
+        // Base condition: If we reach the end of the array, return 0
+        if (currentIndex == envelopes.length) {
+            return 0;
+        }
+
+        // If the result for the current state is already calculated, return it
+        if (dp[currentIndex][prevIndex + 1] != -1) {
+            return dp[currentIndex][prevIndex + 1];
+        }
+
+        // Option 1: Do not take the current envelope
+        int notTake = maxRussianDolls(envelopes, currentIndex + 1, prevIndex, dp);
+
+        // Option 2: Take the current envelope if it can fit inside the previous one
+        int take = 0;
+        if (prevIndex == -1 || (envelopes[currentIndex][0] > envelopes[prevIndex][0] && envelopes[currentIndex][1] > envelopes[prevIndex][1])) {
+            take = 1 + maxRussianDolls(envelopes, currentIndex + 1, currentIndex, dp);
+        }
+
+        // Store the result in the memoization table and return the maximum of the two options
+        dp[currentIndex][prevIndex + 1] = Math.max(notTake, take);
+
+        return dp[currentIndex][prevIndex + 1];
+    }
+
+    public static void main(String[] args) {
+        int[][] envelopes = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
+        System.out.println("The maximum number of envelopes that can be Russian dolled is: " + russianDollEnvelopes(envelopes));
     }
 }

@@ -10,7 +10,7 @@ directly below or diagonally left/right. Specifically, the next element from pos
 
 // Time Complexity: O(N*M) - There are two nested loops
 // Space Complexity: O(N*M) - We are using an external array of size ‘N*M’. The stack space will be eliminated.
-class MinimumFallingPathSum_931_Variable_Starting_and_Ending_Points_Using_Tabulation_NO_TLE {
+class MinimumFallingPathSum_931_Variable_Starting_and_Ending_Points_Using_Tabulation_NO_TLE_Not_Revised {
     static int minFallingPathSum(int[][] matrix) {
         int n = matrix.length;
         int m = matrix[0].length;

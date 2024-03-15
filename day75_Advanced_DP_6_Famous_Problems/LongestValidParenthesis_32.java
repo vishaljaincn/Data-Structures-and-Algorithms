@@ -16,32 +16,65 @@ Example 3:
 Input: s = ""
 Output: 0
  */
-// Time Complexity: O(n) - Single pass through the string
-// Space Complexity: O(n) - Additional space used for the dp array
-public class LongestValidParenthesis_32 {
-    // Function to find the length of the longest valid parentheses substring
-    public int longestValidParentheses(String A) {
+// Time complexity: O(n), where n is the length of the input string s.
+// Space complexity: O(1), constant space used for storing counts and maximum length.
+class LongestValidParenthesis_32 {
+    public int longestValidParentheses(String s) {
+        // Variables to keep track of counts and maximum length
+        int leftCount = 0;
+        int rightCount = 0;
+        int maxLength = 0;
 
-        int n = A.length();
-        int[] dp = new int[n]; // Array to store the length of valid parentheses substring ending at each index
-
-        int ans = 0;
-        for (int i = 1; i < n; i++) {
-            char ch = A.charAt(i);
-            if (ch == ')') {
-                // Check if the current character is ')' and the previous character is '('
-                if (A.charAt(i - 1) == '(') {
-                    // If true, update dp[i] with length of valid parentheses substring ending at i-2 (if i-2 is valid)
-                    dp[i] = (i - 2 >= 0) ? dp[i - 2] + 2 : 2;
-                } else if (i - dp[i - 1] - 1 >= 0 && A.charAt(i - dp[i - 1] - 1) == '(') {
-                    // If true, update dp[i] with length of valid parentheses substring ending at i-1 and i-2 (if i-2 is valid)
-                    dp[i] = 2 + dp[i - 1];
-                    dp[i] = (i - dp[i] >= 0) ? dp[i - dp[i]] + dp[i] : dp[i];
-                }
+        // Traverse the string from left to right
+        for (int i = 0; i < s.length(); i++) {
+            // If current character is '('
+            if (s.charAt(i) == '(') {
+                leftCount++; // Increment count of '('
+            } else {
+                rightCount++; // Increment count of ')'
             }
-            ans = Math.max(ans, dp[i]); // Update the overall maximum length
-        }
-        return ans; // Return the overall maximum length of valid parentheses substring
-    }
 
+            // If counts of '(' and ')' are equal
+            if (leftCount == rightCount) {
+                // Calculate the length of valid substring and update maxLength
+                maxLength = Math.max(maxLength, 2 * rightCount);
+            } else if (rightCount > leftCount) {
+                // If ')' count exceeds '(' count, reset counts
+                leftCount = rightCount = 0;
+            }
+        }
+
+        // Reset counts for traversal from right to left
+        leftCount = rightCount = 0;
+
+        // Traverse the string from right to left
+        for (int i = s.length() - 1; i >= 0; i--) {
+            // If current character is '('
+            if (s.charAt(i) == '(') {
+                leftCount++; // Increment count of '('
+            } else {
+                rightCount++; // Increment count of ')'
+            }
+
+            // If counts of '(' and ')' are equal
+            if (leftCount == rightCount) {
+                // Calculate the length of valid substring and update maxLength
+                maxLength = Math.max(maxLength, 2 * leftCount);
+            } else if (leftCount > rightCount) {
+                // If '(' count exceeds ')' count, reset counts
+                leftCount = rightCount = 0;
+            }
+        }
+
+        // Return the maximum length of valid substring found
+        return maxLength;
+    }
 }
+/*BELOW STRING IS A CLASSIC EXAMPLE WHY WE NEED TO ITERATE ON BOTH SIDES TO GET THE PROPER ANSWER
+s = "(()"
+
+Output
+0
+Expected
+2
+ */

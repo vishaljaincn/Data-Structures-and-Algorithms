@@ -4,12 +4,12 @@ package day77_Advanced_Graphs_2_Topological_Sort_DSU;
 Time Complexity:  The actual time complexity is O(4) which is very small and close to 1. So, we can consider 4 as a constant.
  */
 // DisjointSet class for Union-Find operations
-class Disjoint_Set_Union_By_Rank {
+class Disjoint_Set_Union_By_Rank_Not_Revised {
     private int[] rank;      // Array to store the rank of each set
     private int[] parent;    // Array to store the parent of each element in the set
 
     // Constructor to initialize the DisjointSet
-    public Disjoint_Set_Union_By_Rank(int n) {
+    public Disjoint_Set_Union_By_Rank_Not_Revised(int n) {
         rank = new int[n + 1];   // Index 0 is not used, so the size is n + 1
         parent = new int[n + 1];
 
@@ -52,7 +52,7 @@ class Disjoint_Set_Union_By_Rank {
     }
 
     public static void main(String[] args) {
-        Disjoint_Set_Union_By_Rank ds = new Disjoint_Set_Union_By_Rank(7);
+        Disjoint_Set_Union_By_Rank_Not_Revised ds = new Disjoint_Set_Union_By_Rank_Not_Revised(7);
 
         // Perform Union-Find operations
         ds.unionByRank(1, 2);

@@ -44,15 +44,15 @@ class Flood_Fill_733 {
             return image;
         }
 
-        Queue<int[]> queue = new LinkedList<>();
-        queue.offer(new int[]{sr, sc});
+        Queue<Pairzz> queue = new LinkedList<>();
+        queue.offer(new Pairzz(sr, sc));
 
         int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
         while (!queue.isEmpty()) {
-            int[] currentPixel = queue.poll();
-            int currentRow = currentPixel[0];
-            int currentCol = currentPixel[1];
+            Pairzz currentPixel = queue.poll();
+            int currentRow = currentPixel.first;
+            int currentCol = currentPixel.second;
 
             // Change the color of the current pixel
             image[currentRow][currentCol] = newColor;
@@ -66,11 +66,21 @@ class Flood_Fill_733 {
                 if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols &&
                         image[newRow][newCol] == originalColor) {
                     // Add the new position to the queue for further processing
-                    queue.offer(new int[]{newRow, newCol});
+                    queue.offer(new Pairzz(newRow, newCol));
                 }
             }
         }
 
         return image;
+    }
+}
+
+class Pairzz {
+    int first;
+    int second;
+
+    public Pairzz(int first, int second) {
+        this.first = first;
+        this.second = second;
     }
 }

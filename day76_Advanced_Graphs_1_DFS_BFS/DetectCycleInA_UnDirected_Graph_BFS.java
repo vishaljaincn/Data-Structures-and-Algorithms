@@ -11,21 +11,21 @@ import java.util.Queue;
 class DetectCycleInA_UnDirected_Graph_BFS {
     // Function to check for cycle using BFS
     static boolean checkForCycle(ArrayList<ArrayList<Integer>> adj, int s, boolean vis[]) {
-        Queue<Pairz> q = new LinkedList<>(); // BFS queue
-        q.add(new Pairz(s, -1)); // Add the starting node with its parent set to -1
+        Queue<Pair> q = new LinkedList<>(); // BFS queue
+        q.add(new Pair(s, -1)); // Add the starting node with its parent set to -1
         vis[s] = true; // Mark the starting node as visited
 
         // Traverse until the queue is empty
         while (!q.isEmpty()) {
             // Retrieve the current node and its parent
-            Pairz node = q.poll();
+            Pair node = q.poll();
             int cur = node.first; // Current node
             int parent = node.second; // Parent node
 
             // Explore all the adjacent nodes of the current node
             for (Integer it : adj.get(cur)) {
                 if (!vis[it]) { // If the adjacent node is not visited
-                    q.add(new Pairz(it, cur)); // Add it to the queue along with its parent
+                    q.add(new Pair(it, cur)); // Add it to the queue along with its parent
                     vis[it] = true; // Mark it as visited
                 } else if (parent != it) // If the adjacent node is visited and not its own parent
                     return true; // There's a cycle
@@ -69,13 +69,13 @@ class DetectCycleInA_UnDirected_Graph_BFS {
     }
 }
 
-// Class to represent a Pairz of integers
-class Pairz {
-    int first; // First element of the Pairz
-    int second; // Second element of the Pairz
+// Class to represent a Pair of integers
+class Pair {
+    int first; // First element of the Pair
+    int second; // Second element of the Pair
 
-    // Constructor to initialize the Pairz
-    public Pairz(int first, int second) {
+    // Constructor to initialize the Pair
+    public Pair(int first, int second) {
         this.first = first;
         this.second = second;
     }

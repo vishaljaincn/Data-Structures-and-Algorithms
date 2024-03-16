@@ -34,12 +34,12 @@ O(n^2).
 Space complexity:
 O(n^2) visit grid
 */
-// Class to represent a pair of coordinates (row, column)
-class Pair {
+// Class to represent a Pairz of coordinates (row, column)
+class Pairz {
     int row;
     int col;
 
-    Pair(int row, int col) {
+    Pairz(int row, int col) {
         this.row = row;
         this.col = col;
     }
@@ -76,12 +76,12 @@ class NumberOfIslands_200 {
         int[] dr = {-1, 0, 1, 0}; // Offsets to move in four directions (up, right, down, left)
         int[] dc = {0, 1, 0, -1};
 
-        Queue<Pair> queue = new LinkedList<>();
-        queue.offer(new Pair(startRow, startCol));
+        Queue<Pairz> queue = new LinkedList<>();
+        queue.offer(new Pairz(startRow, startCol));
         visited[startRow][startCol] = 1; // Mark the starting cell as visited
 
         while (!queue.isEmpty()) {
-            Pair current = queue.poll();
+            Pairz current = queue.poll();
 
             // Explore neighbors in all four directions
             for (int i = 0; i < 4; i++) {
@@ -91,7 +91,7 @@ class NumberOfIslands_200 {
                 // Check if the neighbor is within the grid boundaries and is unvisited land
                 if (isValid(newRow, newCol, grid.length, grid[0].length)
                         && grid[newRow][newCol] == '1' && visited[newRow][newCol] == 0) {
-                    queue.offer(new Pair(newRow, newCol));
+                    queue.offer(new Pairz(newRow, newCol));
                     visited[newRow][newCol] = 1; // Mark the neighbor as visited
                 }
             }

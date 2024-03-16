@@ -11,7 +11,7 @@ recursive stack space, where N = no. of nodes.
 import java.util.ArrayList;
 import java.util.Stack;
 
-class Topological_Sort_Algorithm_DFS {
+class Topological_Sort_Algorithm_DFS_Not_Revised {
 
     // Function to perform Depth-First Search (DFS) for Topological Sorting
     private static void dfs(int node, int vis[], Stack<Integer> st, ArrayList<ArrayList<Integer>> adj) {

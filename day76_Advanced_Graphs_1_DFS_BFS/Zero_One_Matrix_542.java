@@ -49,7 +49,7 @@ class Zero_One_Matrix_542 {
                 if (mat[i][j] == 0) {
                     vis[i][j] = 1;
                     q.add(new Node(i, j, 0));
-                } else {
+                } else { //REDUNDANT ELSE LOOP
                     vis[i][j] = 0;
                 }
             }

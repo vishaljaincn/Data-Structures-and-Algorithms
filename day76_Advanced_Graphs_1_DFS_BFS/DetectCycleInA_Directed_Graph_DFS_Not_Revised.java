@@ -7,7 +7,7 @@ another O(V) time complexity.
 
 Space Complexity: O(2N) + O(N) ~ O(2N): O(2N) for two visited arrays and O(N) for recursive stack space.
  */
-class DetectCycleInA_Directed_Graph_DFS {
+class DetectCycleInA_Directed_Graph_DFS_Not_Revised {
 
     // Helper function to perform DFS and check for cycles
     private boolean dfsCheck(int node, ArrayList<ArrayList<Integer>> adj, int vis[], int pathVis[]) {
@@ -62,7 +62,7 @@ class DetectCycleInA_Directed_Graph_DFS {
         adj.get(9).add(10);
         adj.get(10).add(8);
 
-        DetectCycleInA_Directed_Graph_DFS obj = new DetectCycleInA_Directed_Graph_DFS();
+        DetectCycleInA_Directed_Graph_DFS_Not_Revised obj = new DetectCycleInA_Directed_Graph_DFS_Not_Revised();
         boolean ans = obj.isCyclic(V, adj);
         if (ans) System.out.println("True");    // If cycle is found, print True
         else System.out.println("False");        // If no cycle is found, print False

@@ -8,7 +8,7 @@ Space Complexity: O(N) + O(N) ~ O(N), Space for recursive stack space and visite
 
 import java.util.ArrayList;
 
-class DetectCycleInA_UnDirected_Graph_DFS {
+class DetectCycleInA_UnDirected_Graph_DFS_Not_Revised {
     private static boolean dfs(int node, int parent, int vis[], ArrayList<ArrayList<Integer>> adj) {
         vis[node] = 1;
         // go to all adjacent nodes

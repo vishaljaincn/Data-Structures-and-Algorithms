@@ -36,99 +36,56 @@ Explanation: There are not enough cables.
     - 2N for the two arrays (parent and size) of size N used inside the disjoint set.
 */
 
-////THIS QUESTION CAN BE SOLVED USING A BASIC DFS OR BFS TRAVERSAL, WE JUST NEED TO FIND THE NO OF CONNECTED COMPONENTS,
-////WE USED DISJOINT SET DATA STRUCTURE TO GET FAMILIAR WITH IT
-
-class Disjoint_Set_Union_By_Sizes {
-    private int[] size;      // Array to store the size of each set
-    private int[] parent;    // Array to store the parent of each element in the set
-
-    // Constructor to initialize the DisjointSet
-    public Disjoint_Set_Union_By_Sizes(int n) {
-        size = new int[n + 1];   // Index 0 is not used, so the size is n + 1
-        parent = new int[n + 1];
-
-        // Initialize each element as a separate set with size 1
-        for (int i = 0; i <= n; i++) {
-            size[i] = 1;
-            parent[i] = i;
-        }
-    }
-
-    // Find the representative (root) of the set to which a particular element belongs
-    public int findUPar(int node) {
-        if (node == parent[node]) {
-            return node;
-        }
-        // Path compression: Make every visited node point directly to the root
-        return parent[node] = findUPar(parent[node]);
-    }
-
-    // Union of two sets by size
-    public void unionBySize(int u, int v) {
-        int ulp_u = findUPar(u);
-        int ulp_v = findUPar(v);
-
-        // If both elements are already in the same set, do nothing
-        if (ulp_u == ulp_v) {
-            return;
-        }
-
-        // Union by size: Attach the smaller size tree under the root of the larger size tree
-        if (size[ulp_u] < size[ulp_v]) {
-            parent[ulp_u] = ulp_v;
-            size[ulp_v] += size[ulp_u];
-        } else {
-            parent[ulp_v] = ulp_u;
-            size[ulp_u] += size[ulp_v];
-        }
-    }
-}
+import java.util.*;
 
 class Solution {
-    // Function to make connected components and determine the number of extra edges needed
     public int makeConnected(int n, int[][] connections) {
-        // Edge case: If the number of nodes is strictly less than the required number of connections to form a network
-        if (connections.length < n - 1) {
-            return -1; // It's not possible to form a fully connected network with fewer connections
-        }
+        // If there are not enough connections to connect all nodes, return -1
+        if (connections.length < n - 1) return -1;
 
-        Disjoint_Set_Union_By_Sizez dsu = new Disjoint_Set_Union_By_Sizez(n);
-
-        // Variable to keep track of the number of extra edges needed
-        int extraEdges = 0;
-
-        // Perform union for each connection
-        for (int[] connection : connections) {
-            int u = connection[0];
-            int v = connection[1];
-
-            // If the two nodes are already in the same set, it means an extra edge is needed
-            if (dsu.findUPar(u) == dsu.findUPar(v)) {
-                extraEdges++;
-            } else {
-                dsu.unionBySize(u, v);
-            }
-        }
-
-        // Count the number of unique parents (representatives)
-        int uniqueParents = 0;
+        // Initialize adjacency list
+        List<List<Integer>> adjList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            if (dsu.findUPar(i) == i) {
-                uniqueParents++;
+            adjList.add(new ArrayList<>());
+        }
+
+        // Populate adjacency list based on connections
+        for (int[] connection : connections) {
+            adjList.get(connection[0]).add(connection[1]);
+            adjList.get(connection[1]).add(connection[0]);
+        }
+
+        // Initialize visited array
+        boolean[] visited = new boolean[n];
+
+        // Count the number of connected components
+        int components = 0;
+        for (int i = 0; i < n; i++) {
+            if (!visited[i]) {
+                bfs(i, adjList, visited);
+                components++;
             }
         }
 
-        // Calculate the minimum number of operations needed
-        int ans = uniqueParents - 1;
+        // Return the number of operations needed
+        return components - 1; // Number of operations = Number of components - 1
+    }
 
-        // If the extraEdges are greater than or equal to ans, return ans; otherwise, it's not possible
-        // to form a fully connected network, so return -1
-        if (extraEdges >= ans) {
-            return ans;
-        } else {
-            return -1;
+    // BFS traversal function
+    private void bfs(int node, List<List<Integer>> adjList, boolean[] visited) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(node); // Add the starting node to the queue
+        visited[node] = true; // Mark the current node as visited
+
+        // Perform BFS traversal
+        while (!queue.isEmpty()) {
+            int curr = queue.poll();
+            for (int neighbor : adjList.get(curr)) {
+                if (!visited[neighbor]) {
+                    queue.offer(neighbor); // Add unvisited neighbor to the queue
+                    visited[neighbor] = true; // Mark the neighbor as visited
+                }
+            }
         }
     }
 }
-

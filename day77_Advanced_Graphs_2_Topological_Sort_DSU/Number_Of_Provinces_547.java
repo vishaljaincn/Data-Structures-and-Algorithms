@@ -26,16 +26,17 @@ import java.util.Queue;
 
 class Number_Of_Provinces_547 {
     // BFS traversal function
-    private static void bfs(int node, ArrayList<ArrayList<Integer>> adjLs, int vis[]) {
+    private static void bfs(int node, ArrayList<ArrayList<Integer>> adjList, int vis[]) {
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(node); // Add the starting node to the queue
         vis[node] = 1; // Mark the current node as visited
 
+        // Perform BFS traversal
         while (!queue.isEmpty()) {
-            int currNode = queue.poll();
-            for (Integer neighbor : adjLs.get(currNode)) {
+            int curr = queue.poll();
+            for (int neighbor : adjList.get(curr)) {
                 if (vis[neighbor] == 0) {
-                    queue.offer(neighbor); // Add unvisited neighbors to the queue
+                    queue.offer(neighbor); // Add unvisited neighbor to the queue
                     vis[neighbor] = 1; // Mark the neighbor as visited
                 }
             }
@@ -44,10 +45,10 @@ class Number_Of_Provinces_547 {
 
     public int findCircleNum(int[][] isConnected) {
         int n = isConnected.length; // Number of cities
-        ArrayList<ArrayList<Integer>> adjLs = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            adjLs.add(new ArrayList<>()); // Initialize adjacency list
+            adjList.add(new ArrayList<>()); // Initialize adjacency list
         }
 
         // Convert adjacency matrix to list
@@ -55,8 +56,7 @@ class Number_Of_Provinces_547 {
             for (int j = 0; j < n; j++) {
                 // Self nodes are not considered
                 if (isConnected[i][j] == 1 && i != j) {
-                    adjLs.get(i).add(j); // Add edges to the adjacency list
-                    adjLs.get(j).add(i); // Add reverse edges for undirected graph
+                    adjList.get(i).add(j); // Add edges to the adjacency list
                 }
             }
         }
@@ -64,10 +64,11 @@ class Number_Of_Provinces_547 {
         int[] vis = new int[n]; // Array to keep track of visited cities
         int cnt = 0; // Counter for the number of provinces
 
+        // Traverse the cities and perform BFS
         for (int i = 0; i < n; i++) {
             if (vis[i] == 0) {
                 cnt++; // Increment the province count for each new starting city
-                bfs(i, adjLs, vis); // Explore the connected cities using BFS
+                bfs(i, adjList, vis); // Explore the connected cities using BFS
             }
         }
 

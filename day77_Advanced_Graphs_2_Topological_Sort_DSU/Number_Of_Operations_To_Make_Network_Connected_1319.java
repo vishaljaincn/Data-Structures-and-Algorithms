@@ -26,19 +26,13 @@ Output: -1
 Explanation: There are not enough cables.
 
  */
-/*
-    Time Complexity: O(E*4α) + O(N*4α) where E = no. of edges and N = no. of nodes.
-    - The first term is to calculate the number of extra edges.
-    - The second term is to count the number of components.
-    - 4α is for the disjoint set operation used, and this term is considered constant.
 
-    Space Complexity: O(2N) where N = no. of nodes.
-    - 2N for the two arrays (parent and size) of size N used inside the disjoint set.
-*/
+// Time complexity: O(V + E), where V is the number of cities (vertices) and E is the number of edges in the adjacency list.
+// Space complexity: O(V), where V is the number of cities, for the visited array.
 
 import java.util.*;
 
-class Solution {
+class Number_Of_Operations_To_Make_Network_Connected_1319 {
     public int makeConnected(int n, int[][] connections) {
         // If there are not enough connections to connect all nodes, return -1
         if (connections.length < n - 1) return -1;

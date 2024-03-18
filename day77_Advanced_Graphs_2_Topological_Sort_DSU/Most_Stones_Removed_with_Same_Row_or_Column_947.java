@@ -99,7 +99,7 @@ class Most_Stones_Removed_with_Same_Row_or_Column {
         }
 
         // Create a Disjoint Set with enough nodes to represent rows, columns, and additional offsets
-        DisjointSetz ds = new DisjointSetz(maxRow + maxCol + 1);
+        DisjointSetz ds = new DisjointSetz(maxRow + maxCol + 2);
 
         // Union stones based on their rows and columns
         for (int i = 0; i < n; i++) {

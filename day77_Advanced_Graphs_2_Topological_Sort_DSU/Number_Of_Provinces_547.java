@@ -1,7 +1,5 @@
 package day77_Advanced_Graphs_2_Topological_Sort_DSU;
 
-import java.util.ArrayList;
-
 /*
 There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b,
 and city b is connected directly with city c, then city a is connected indirectly with city c.
@@ -21,23 +19,35 @@ Output: 3
  */
 // Time complexity: O(V + E), where V is the number of cities (vertices) and E is the number of edges in the adjacency list.
 // Space complexity: O(V), where V is the number of cities, for the visited array.
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Number_Of_Provinces_547 {
-    // DFS traversal function
-    private static void dfs(int node, ArrayList<ArrayList<Integer>> adjLs, int vis[]) {
+    // BFS traversal function
+    private static void bfs(int node, ArrayList<ArrayList<Integer>> adjLs, int vis[]) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(node); // Add the starting node to the queue
         vis[node] = 1; // Mark the current node as visited
-        for (Integer it : adjLs.get(node)) {
-            if (vis[it] == 0) {
-                dfs(it, adjLs, vis); // Recursive DFS for unvisited neighbors
+
+        while (!queue.isEmpty()) {
+            int currNode = queue.poll();
+            for (Integer neighbor : adjLs.get(currNode)) {
+                if (vis[neighbor] == 0) {
+                    queue.offer(neighbor); // Add unvisited neighbors to the queue
+                    vis[neighbor] = 1; // Mark the neighbor as visited
+                }
             }
         }
     }
 
     public int findCircleNum(int[][] isConnected) {
         int n = isConnected.length; // Number of cities
-        ArrayList<ArrayList<Integer>> adjLs = new ArrayList<ArrayList<Integer>>();
+        ArrayList<ArrayList<Integer>> adjLs = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            adjLs.add(new ArrayList<Integer>()); // Initialize adjacency list
+            adjLs.add(new ArrayList<>()); // Initialize adjacency list
         }
 
         // Convert adjacency matrix to list
@@ -57,7 +67,7 @@ class Number_Of_Provinces_547 {
         for (int i = 0; i < n; i++) {
             if (vis[i] == 0) {
                 cnt++; // Increment the province count for each new starting city
-                dfs(i, adjLs, vis); // Explore the connected cities using DFS
+                bfs(i, adjLs, vis); // Explore the connected cities using BFS
             }
         }
 

@@ -1,8 +1,5 @@
 package day78_Advanced_Graphs_3_MST_Dijkstra;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 /*
 Given an n x n binary matrix grid, return the length of the shortest clear path in the matrix. If there is no clear
 path, return -1.
@@ -24,6 +21,10 @@ Example 3:
 Input: grid = [[1,0,0],[1,1,0],[1,1,0]]
 Output: -1
  */
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 /*
 Time Complexity: O( 8*N*M ) { N*M are the total cells, for each of which we also check 8 adjacent nodes for the shortest path length},
 Where N = No. of rows of the binary maze and M = No. of columns of the binary maze.
@@ -85,6 +86,11 @@ class ShortestPathInABinaryMatrix_1091 {
             int row = current.row;
             int col = current.col;
 
+            // Check if the destination is reached.
+            if (row == numRows - 1 && col == numCols - 1) {
+                return distances[row][col];
+            }
+
             // Check adjacent cells for possible movements.
             for (int i = 0; i < 8; i++) {
                 int newRow = row + deltaRows[i];
@@ -96,11 +102,6 @@ class ShortestPathInABinaryMatrix_1091 {
                     // Update the distance and enqueue the new position.
                     distances[newRow][newCol] = 1 + currentDistance;
 
-                    // Check if the destination is reached.
-                    if (newRow == numRows - 1 && newCol == numCols - 1) {
-                        return distances[newRow][newCol];
-                    }
-
                     // Enqueue the new tuple.
                     queue.add(new Tuple(1 + currentDistance, newRow, newCol));
                 }
@@ -109,20 +110,5 @@ class ShortestPathInABinaryMatrix_1091 {
 
         // If the destination is not reachable, return -1.
         return -1;
-    }
-
-    public static void main(String[] args) {
-        // Example usage of the shortestPathBinaryMatrix method
-        int[][] grid = {
-                {0, 1, 0, 0},
-                {0, 0, 0, 1},
-                {1, 1, 0, 0},
-                {0, 0, 0, 0}
-        };
-
-        ShortestPathInABinaryMatrix_1091 solution = new ShortestPathInABinaryMatrix_1091();
-        int shortestPathLength = solution.shortestPathBinaryMatrix(grid);
-
-        System.out.println("Shortest Path Length: " + shortestPathLength);
     }
 }

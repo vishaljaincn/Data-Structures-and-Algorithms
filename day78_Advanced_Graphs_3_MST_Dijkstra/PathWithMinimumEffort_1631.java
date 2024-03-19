@@ -40,7 +40,7 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 
 // Define a Tuplee class to represent triplets (row, column, effort)
-class Tuplee implements Comparable<Tuplee> {
+class Tuplee {
     int row;
     int col;
     int effort;
@@ -51,10 +51,6 @@ class Tuplee implements Comparable<Tuplee> {
         this.effort = effort;
     }
 
-    @Override
-    public int compareTo(Tuplee other) {
-        return Integer.compare(this.effort, other.effort);
-    }
 }
 
 public class PathWithMinimumEffort_1631 {
@@ -72,7 +68,7 @@ public class PathWithMinimumEffort_1631 {
         efforts[0][0] = 0;
 
         // Priority queue to store cells with minimum efforts
-        PriorityQueue<Tuplee> pq = new PriorityQueue<>();
+        PriorityQueue<Tuplee> pq = new PriorityQueue<>((x, y) -> x.effort - y.effort);
         pq.offer(new Tuplee(0, 0, 0)); // Start from the top-left cell
 
         // Delta arrays representing possible movements (up, right, down, left)

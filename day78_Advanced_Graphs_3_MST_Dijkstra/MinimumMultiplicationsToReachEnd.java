@@ -48,12 +48,12 @@ dist array is constant.
  */
 
 class Paire {
-    int first, second;
+    int node, steps;
 
     // Constructor for the Pair class
-    Paire(int first, int second) {
-        this.first = first;
-        this.second = second;
+    Paire(int node, int steps) {
+        this.node = node;
+        this.steps = steps;
     }
 }
 
@@ -72,9 +72,12 @@ public class MinimumMultiplicationsToReachEnd {
 
         // BFS to find the minimum steps to reach 'end'
         while (!q.isEmpty()) {
-            int node = q.peek().first;
-            int steps = q.peek().second;
+            int node = q.peek().node;
+            int steps = q.peek().steps;
             q.remove();
+
+            // If the target 'end' is reached, return the minimum steps
+            if (node == end) return steps;
 
             // Iterate through each number in the array
             for (int i = 0; i < n; i++) {
@@ -83,10 +86,6 @@ public class MinimumMultiplicationsToReachEnd {
                 // If a shorter path is found, update the distance and enqueue the new node
                 if (steps + 1 < dist[num]) {
                     dist[num] = steps + 1;
-
-                    // If the target 'end' is reached, return the minimum steps
-                    if (num == end) return steps + 1;
-
                     q.add(new Paire(num, steps + 1));
                 }
             }

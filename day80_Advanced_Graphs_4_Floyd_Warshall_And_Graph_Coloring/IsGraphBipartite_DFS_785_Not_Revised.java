@@ -32,7 +32,7 @@ Space Complexity: O(3V) ~ O(V), Space for queue data structure, colour array and
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class IsGraphBipartite_DFS_785 {
+class IsGraphBipartite_DFS_785_Not_Revised {
     // Function to check if a graph is bipartite using DFS
     public static boolean isBipartite(int[][] graph) {
         int V = graph.length;

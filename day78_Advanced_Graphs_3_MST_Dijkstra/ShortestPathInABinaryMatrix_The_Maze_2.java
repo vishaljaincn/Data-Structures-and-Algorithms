@@ -42,7 +42,7 @@ Space Complexity: O( |E| + |V| ), Where E = Number of edges and V = Number of No
 import java.util.PriorityQueue;
 
 // Class representing a tuple with distance, row, and column
-class Tuplez implements Comparable<Tuplez> {
+class Tuplez {
     int distance, row, col;
 
     Tuplez(int distance, int row, int col) {
@@ -51,10 +51,6 @@ class Tuplez implements Comparable<Tuplez> {
         this.col = col;
     }
 
-    @Override
-    public int compareTo(Tuplez other) {
-        return Integer.compare(this.distance, other.distance);
-    }
 }
 
 public class ShortestPathInABinaryMatrix_The_Maze_2 {
@@ -65,7 +61,7 @@ public class ShortestPathInABinaryMatrix_The_Maze_2 {
         int numCols = maze[0].length;
 
         // Priority queue to maintain the order of tuples based on distance
-        PriorityQueue<Tuplez> pq = new PriorityQueue<>();
+        PriorityQueue<Tuplez> pq = new PriorityQueue<>((x, y) -> x.distance - y.distance);
 
         // Array to store distances from the start position to each cell in the maze
         int[][] distances = new int[numRows][numCols];
@@ -89,6 +85,11 @@ public class ShortestPathInABinaryMatrix_The_Maze_2 {
             int col = current.col;
             int currentDistance = current.distance;
 
+            // Check if the destination is reached
+            if (row == destination[0] && col == destination[1]) {
+                return distances[row][col];
+            }
+
             // Explore possible moves in four directions
             for (int i = 0; i < 4; i++) {
                 int newRow = row + deltaRows[i];
@@ -109,11 +110,6 @@ public class ShortestPathInABinaryMatrix_The_Maze_2 {
                 // Update the distance if the new path is shorter
                 if (currentDistance + steps < distances[newRow][newCol]) {
                     distances[newRow][newCol] = currentDistance + steps;
-
-                    // Check if the destination is reached
-                    if (newRow == destination[0] && newCol == destination[1]) {
-                        return distances[newRow][newCol];
-                    }
 
                     // Add the new position to the priority queue
                     pq.add(new Tuplez(distances[newRow][newCol], newRow, newCol));

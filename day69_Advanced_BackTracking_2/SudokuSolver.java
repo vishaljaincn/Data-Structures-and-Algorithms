@@ -11,6 +11,11 @@ This is primarily determined by the maximum depth of the recursion stack, which 
 in the puzzle. In the worst case, it's at most 81 for a standard 9x9 Sudoku puzzle.
  */
 
+/*
+O (9 ^ 81) is constant. Since the board is 9 x 9 this means n is constant.
+N doesn't grow. It's fixed. And so is the time complexity. Fight me or agree with me.
+ */
+
 public class SudokuSolver {
 
     public void solveSudoku(char[][] board) {

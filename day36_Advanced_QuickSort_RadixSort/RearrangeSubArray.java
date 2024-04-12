@@ -3,8 +3,8 @@ package day36_Advanced_QuickSort_RadixSort;
 import java.util.Arrays;
 
 /*
-Given an arrray A of N elements,and a subarray A[S,E] rearrange the Subarray such that A[S] should go to correct sorted position
-and all the elments less than or equal toA[S] should go to left of A[S] and all the elments greater than A[S] should go to right of A[S]
+Given an array A of N elements,and a subarray A[S,E] rearrange the Subarray such that A[S] should go to correct sorted position
+and all the elements less than or equal toA[S] should go to left of A[S] and all the elements greater than A[S] should go to right of A[S]
  */
 public class RearrangeSubArray {
     public static void rearrangeSubArray(int A[], int S, int E) {

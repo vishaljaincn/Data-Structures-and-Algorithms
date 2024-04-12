@@ -1,7 +1,7 @@
 package day36_Advanced_QuickSort_RadixSort;
 /*
-Given an arrray A of N elements, rearrange the array such that A[0] should go to correct sorted position and all the
-elments less than or equal toA[0] should go to left of A[0] and all the elments greater than A[0] should go to right of A[0]
+Given an array A of N elements, rearrange the array such that A[0] should go to correct sorted position and all the
+elements less than or equal to A[0] should go to left of A[0] and all the elements greater than A[0] should go to right of A[0]
  */
 
 import java.util.Arrays;

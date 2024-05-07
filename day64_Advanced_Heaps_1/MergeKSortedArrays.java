@@ -60,7 +60,7 @@ public class MergeKSortedArrays {
     public static void main(String[] args) {
         // Example usage
         List<Integer> array1 = List.of(1, 3, 5, 7);
-        List<Integer> array2 = List.of(2, 4, 6, 8);
+        List<Integer> array2 = List.of(2, 4, 7, 8);
         List<Integer> array3 = List.of(0, 9, 10, 11);
 
         List<List<Integer>> arrays = List.of(array1, array2, array3);

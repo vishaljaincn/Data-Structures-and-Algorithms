@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class RotateAnArrayFromFirst_To_Last_K_Times {
 
     // Function to rotate an array from last to first k times
-    public static int[] rotateAnArrayFromLastToFirstK_Times(int arr[], int k) {
+    public static int[] rotateAnArrayFromLastToFirstK_Times(int[] arr, int k) {
         int n = arr.length;
 
         // If k is equal to 0 or equal to the array length, no rotation needed
@@ -57,7 +57,7 @@ public class RotateAnArrayFromFirst_To_Last_K_Times {
 
     // Main method to test the rotation function
     public static void main(String[] args) {
-        int arr[] = {3, -2, 1, 4, 6, 9, 8};
+        int[] arr = {3, -2, 1, 4, 6, 9, 8};
         System.out.println(Arrays.toString(rotateAnArrayFromLastToFirstK_Times(arr, 3)));
     }
 }

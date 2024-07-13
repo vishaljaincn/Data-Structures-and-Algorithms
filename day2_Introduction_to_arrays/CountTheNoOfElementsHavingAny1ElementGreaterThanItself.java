@@ -1,29 +1,24 @@
 package day2_Introduction_to_arrays;
 
 public class CountTheNoOfElementsHavingAny1ElementGreaterThanItself {
-    public static int countGreater(int [] arr)
-    {
-        int n= arr.length;
-        int max=arr[0];
-        for(int i=1;i<n;i++)
-        {
-            if(arr[i]>max)
-            {
-                max=arr[i];
+    public static int countGreater(int[] arr) {
+        int n = arr.length;
+        int max = arr[0];
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
             }
         }
-        int count=0;
-        for(int i=0;i<n;i++)
-        {
-            if(arr[i]==max)
-            {
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == max) {
                 count++;
             }
         }
-        return n-count;
+        return n - count;
     }
-    public static int aboveCodeUsingASingleLoop(int arr[])
-    {
+
+    public static int aboveCodeUsingASingleLoop(int[] arr) {
         int n = arr.length;
         int max = arr[0];
         int count = 1;  // Initialize count to 1 since the first element is always counted
@@ -41,8 +36,8 @@ public class CountTheNoOfElementsHavingAny1ElementGreaterThanItself {
     }
 
     public static void main(String[] args) {
-        int arr[]={1,2,3,4,5,6,4,6,6};
-        int arr2[]={4,4,4,4,1,2,3,5,6,7};
+        int[] arr = {1, 2, 3, 4, 5, 6, 4, 6, 6};
+        int[] arr2 = {4, 4, 4, 4, 1, 2, 3, 5, 6, 7};
         System.out.println(countGreater(arr));
         System.out.println(aboveCodeUsingASingleLoop(arr));
         System.out.println(countGreater(arr2));

@@ -14,25 +14,22 @@ We can change the array A = [4, 4, 4, 4, 4]. The time required will be 8 seconds
 */
 public class TimeToEquality {
     public static int solve(ArrayList<Integer> A) {
-        int n=A.size();
-        int max=A.get(0);
-        for(int i=1;i<n;i++)
-        {
-            if(A.get(i)>max)
-            {
-                max=A.get(i);
+        int n = A.size();
+        int max = A.get(0);
+        for (int i = 1; i < n; i++) {
+            if (A.get(i) > max) {
+                max = A.get(i);
             }
         }
-        int count=0;
-        for(int i=0;i<n;i++)
-        {
-            count=count+(max-A.get(i));
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            count = count + (max - A.get(i));
         }
         return count;
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> list= new ArrayList<>();
+        ArrayList<Integer> list = new ArrayList<>();
         list.add(2);
         list.add(4);
         list.add(1);

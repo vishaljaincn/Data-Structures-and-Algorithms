@@ -34,8 +34,23 @@ public class Maximum_Subarray_Sum_Kadanes_Algorithm {
         return finalSum;
     }
 
+    public static int maxSubArrays(final int[] A) {
+        int n = A.length;
+        int maxSum = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+            for (int j = i; j < n; j++) {
+                sum = sum + A[j];
+                if (sum > maxSum) {
+                    maxSum = sum;
+                }
+            }
+        }
+        return maxSum;
+    }
+
     public static void main(String[] args) {
-        int arr[] = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int arr[] = {-2, 1, -3, 4, -1, 2, 1, -5, 4, 10, 10, 10};
         System.out.println(maxSubArray(arr));
     }
 }

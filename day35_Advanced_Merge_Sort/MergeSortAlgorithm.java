@@ -16,15 +16,15 @@ public class MergeSortAlgorithm {
         int leftArray[] = new int[n1];
         int rightArray[] = new int[n2];
 
-        // Copy data from A to the temporary arrays
-        for (int i = 0; i < n1; i++)
-            leftArray[i] = A[start + i];
-        for (int j = 0; j < n2; j++)
-            rightArray[j] = A[mid + 1 + j];
+//        // Copy data from A to the temporary arrays
+//        for (int i = 0; i < n1; i++)
+//            leftArray[i] = A[start + i];
+//        for (int j = 0; j < n2; j++)
+//            rightArray[j] = A[mid + 1 + j];
 
         // Copy data from A to the temporary arrays
-       // System.arraycopy(A, start, leftArray, 0, n1);
-       // System.arraycopy(A, mid + 1, rightArray, 0, n2);
+        System.arraycopy(A, start, leftArray, 0, n1);
+        System.arraycopy(A, mid + 1, rightArray, 0, n2);
 
         // Initialize indices for traversing leftArray, rightArray, and updating A
         int i, j, k;

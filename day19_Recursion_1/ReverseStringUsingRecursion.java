@@ -2,7 +2,7 @@ package day19_Recursion_1;
 
 public class ReverseStringUsingRecursion {
     public static void main(String[] args) {
-        String original = "Hello, World!";
+        String original = "Hello";
         String reversed = reverse(original);
         System.out.println("Original: " + original);
         System.out.println("Reversed: " + reversed);

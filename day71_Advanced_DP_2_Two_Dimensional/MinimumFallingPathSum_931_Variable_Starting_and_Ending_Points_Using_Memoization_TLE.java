@@ -29,12 +29,12 @@ class MinimumFallingPathSum_931_Variable_Starting_and_Ending_Points_Using_Memoiz
             return dp[i][j]; // Return the precomputed value if already calculated
 
         // Calculate three possible paths: moving down, left diagonal, and right diagonal
-        int down = matrix[i][j] + getMinFallingUtil(i - 1, j, n, matrix, dp);
+        int up = matrix[i][j] + getMinFallingUtil(i - 1, j, n, matrix, dp);
         int leftDiagonal = matrix[i][j] + getMinFallingUtil(i - 1, j - 1, n, matrix, dp);
         int rightDiagonal = matrix[i][j] + getMinFallingUtil(i - 1, j + 1, n, matrix, dp);
 
         // Store the minimum of the three paths in dp
-        return dp[i][j] = Math.min(down, Math.min(leftDiagonal, rightDiagonal));
+        return dp[i][j] = Math.min(up, Math.min(leftDiagonal, rightDiagonal));
     }
 
     // Function to find the minimum falling path sum in the matrix

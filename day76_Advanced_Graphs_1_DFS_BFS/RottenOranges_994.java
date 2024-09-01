@@ -54,8 +54,7 @@ class RottenOranges_994 {
         int[] dRow = {-1, 0, 1, 0};
         int[] dCol = {0, 1, 0, -1};
 
-        // Variables to track time and result
-        int time = 0;
+        // Variable to track result
         int res = 0;
 
         // Loop through the grid to initialize the queue and count fresh oranges

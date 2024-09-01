@@ -25,7 +25,7 @@ is impossible.
 import java.util.ArrayList;
 import java.util.List;
 
-class Course_Schedule_207 {
+class Course_Schedule_207_Not_Revised {
     // Function to check if it's possible to finish all courses
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         int n = prerequisites.length;

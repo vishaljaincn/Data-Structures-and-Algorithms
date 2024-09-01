@@ -57,7 +57,7 @@ class IsGraphBipartite_BFS_785 {
         for (int i = 0; i < V; i++) {
             if (color[i] == -1) {
                 // Check if the connected component is bipartite
-                if (check(i, adjList, color) == false) {
+                if (BFS_And_Check(i, adjList, color) == false) {
                     return false;
                 }
             }
@@ -66,7 +66,7 @@ class IsGraphBipartite_BFS_785 {
     }
 
     // Helper function to perform BFS and check bipartiteness
-    private static boolean check(int start, ArrayList<ArrayList<Integer>> adjList, int[] color) {
+    private static boolean BFS_And_Check(int start, ArrayList<ArrayList<Integer>> adjList, int[] color) {
         Queue<Integer> q = new LinkedList<>();
         q.add(start);
         color[start] = 0; // Initial color

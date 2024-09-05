@@ -53,7 +53,8 @@ class Tuplee {
 
 }
 
-public class PathWithMinimumEffort_1631 {
+public class
+PathWithMinimumEffort_1631 {
 
     // Main method for testing
     public static void main(String[] args) {

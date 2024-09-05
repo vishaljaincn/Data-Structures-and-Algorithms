@@ -30,6 +30,21 @@ class Pairz {
 // Main solution class
 public class Print_Shortest_Path_Dijkstras_Algorithm {
 
+    // Main method
+    public static void main(String[] args) {
+        // Example usage for shortest path from vertex 1 to vertex 5
+        Print_Shortest_Path_Dijkstras_Algorithm solution = new Print_Shortest_Path_Dijkstras_Algorithm();
+        int A = 5;
+        int[][] B = {{1, 2, 2}, {2, 5, 5}, {2, 3, 4}, {1, 4, 1}, {4, 3, 3}, {3, 5, 1}};
+        int source = 1; // Specify the source vertex
+        int destination = 5; // Specify the destination vertex
+
+        int[] result = solution.solve(A, B, source, destination);
+
+        // Print the result
+        System.out.println(Arrays.toString(result));
+    }
+
     // Function to find the shortest distances from a source node
     public int[] solve(int A, int[][] B, int source, int destination) {
 
@@ -104,20 +119,5 @@ public class Print_Shortest_Path_Dijkstras_Algorithm {
         }
 
         return result;
-    }
-
-    // Main method
-    public static void main(String[] args) {
-        // Example usage for shortest path from vertex 1 to vertex 5
-        Print_Shortest_Path_Dijkstras_Algorithm solution = new Print_Shortest_Path_Dijkstras_Algorithm();
-        int A = 5;
-        int[][] B = {{1, 2, 2}, {2, 5, 5}, {2, 3, 4}, {1, 4, 1}, {4, 3, 3}, {3, 5, 1}};
-        int source = 1; // Specify the source vertex
-        int destination = 5; // Specify the destination vertex
-
-        int[] result = solution.solve(A, B, source, destination);
-
-        // Print the result
-        System.out.println(Arrays.toString(result));
     }
 }

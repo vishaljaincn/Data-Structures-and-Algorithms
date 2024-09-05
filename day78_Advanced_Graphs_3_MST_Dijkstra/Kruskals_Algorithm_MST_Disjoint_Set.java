@@ -22,8 +22,8 @@ import java.util.Comparator;
 
 // Disjoint Set Union implementation based on size
 class Disjoint_Set_Union_By_Size {
-    private int[] size;      // Array to store the size of each set
-    private int[] parent;    // Array to store the parent of each element in the set
+    private final int[] size;      // Array to store the size of each set
+    private final int[] parent;    // Array to store the parent of each element in the set
 
     // Constructor to initialize the DisjointSet
     public Disjoint_Set_Union_By_Size(int n) {
@@ -92,6 +92,31 @@ class PairComparator implements Comparator<Pair> {
 
 // Solution class
 class Kruskals_Algorithm_MST {
+    public static void main(String[] args) {
+        // Example usage of Kruskal's Algorithm for Minimum Spanning Tree
+
+        // Number of vertices
+        int vertices = 4;
+
+        // Example graph represented by edges and their weights
+        int[][] edges = {
+                {1, 2, 1},
+                {2, 3, 2},
+                {3, 4, 3},
+                {4, 1, 4},
+                {1, 3, 5}
+        };
+
+        // Create an instance of the Kruskals_Algorithm_MST class
+        Kruskals_Algorithm_MST kruskalsAlgorithm = new Kruskals_Algorithm_MST();
+
+        // Call the solve method to find the minimum cost of the Minimum Spanning Tree
+        int minimumCost = kruskalsAlgorithm.solve(vertices, edges);
+
+        // Print the minimum cost
+        System.out.println("Minimum Cost of the Minimum Spanning Tree: " + minimumCost);
+    }
+
     // Method to solve the problem
     public int solve(int A, int[][] B) {
         int minCost = 0;
@@ -120,31 +145,5 @@ class Kruskals_Algorithm_MST {
         }
 
         return minCost;
-    }
-
-
-    public static void main(String[] args) {
-        // Example usage of Kruskal's Algorithm for Minimum Spanning Tree
-
-        // Number of vertices
-        int vertices = 4;
-
-        // Example graph represented by edges and their weights
-        int[][] edges = {
-                {1, 2, 1},
-                {2, 3, 2},
-                {3, 4, 3},
-                {4, 1, 4},
-                {1, 3, 5}
-        };
-
-        // Create an instance of the Kruskals_Algorithm_MST class
-        Kruskals_Algorithm_MST kruskalsAlgorithm = new Kruskals_Algorithm_MST();
-
-        // Call the solve method to find the minimum cost of the Minimum Spanning Tree
-        int minimumCost = kruskalsAlgorithm.solve(vertices, edges);
-
-        // Print the minimum cost
-        System.out.println("Minimum Cost of the Minimum Spanning Tree: " + minimumCost);
     }
 }

@@ -41,6 +41,19 @@ class Pairs {
 // Main solution class
 public class Dijkstras_Algorithm_Shortest_Path_Priority_Queue {
 
+    // Main method
+    public static void main(String[] args) {
+        // Example usage
+        Dijkstras_Algorithm_Shortest_Path_Priority_Queue solution = new Dijkstras_Algorithm_Shortest_Path_Priority_Queue();
+        int A = 5;
+        int[][] B = {{0, 1, 2}, {0, 2, 4}, {1, 3, 3}, {2, 4, 1}, {3, 4, 5}};
+        int C = 0;
+        int[] result = solution.solve(A, B, C);
+
+        // Print the result
+        System.out.println(Arrays.toString(result));
+    }
+
     // Function to find the shortest distances from a source node
     public int[] solve(int A, int[][] B, int C) {
 
@@ -99,18 +112,5 @@ public class Dijkstras_Algorithm_Shortest_Path_Priority_Queue {
 
         // Return the array of distances
         return distances;
-    }
-
-    // Main method
-    public static void main(String[] args) {
-        // Example usage
-        Dijkstras_Algorithm_Shortest_Path_Priority_Queue solution = new Dijkstras_Algorithm_Shortest_Path_Priority_Queue();
-        int A = 5;
-        int[][] B = {{0, 1, 2}, {0, 2, 4}, {1, 3, 3}, {2, 4, 1}, {3, 4, 5}};
-        int C = 0;
-        int[] result = solution.solve(A, B, C);
-
-        // Print the result
-        System.out.println(Arrays.toString(result));
     }
 }

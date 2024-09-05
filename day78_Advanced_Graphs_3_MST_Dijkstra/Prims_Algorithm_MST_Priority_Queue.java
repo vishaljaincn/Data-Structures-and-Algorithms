@@ -20,16 +20,24 @@ and O(V) due to the visited array. If we wish to get the mst, we need an extra O
  */
 public class Prims_Algorithm_MST_Priority_Queue {
 
-    // Class to represent a pair (node, distance) in the graph
-    class Pair {
-        int node;
-        int distance;
+    public static void main(String[] args) {
+        Prims_Algorithm_MST_Priority_Queue primSolver = new Prims_Algorithm_MST_Priority_Queue();
 
-        // Constructor to initialize a Pair
-        public Pair(int node, int distance) {
-            this.node = node;
-            this.distance = distance;
-        }
+        // Example graph represented by an adjacency matrix
+        int[][] graph = {
+                {0, 1, 2},
+                {1, 2, 3},
+                {0, 2, 4}
+        };
+
+        // Number of nodes in the graph
+        int numNodes = 3;
+
+        // Call the solve method to find the minimum spanning tree weight
+        int minimumSpanningTreeWeight = primSolver.solve(numNodes, graph);
+
+        // Print the result
+        System.out.println("Total weight of the minimum spanning tree: " + minimumSpanningTreeWeight);
     }
 
     // Function to find the minimum spanning tree using Prim's algorithm
@@ -87,24 +95,16 @@ public class Prims_Algorithm_MST_Priority_Queue {
         return totalSum;
     }
 
-    public static void main(String[] args) {
-        Prims_Algorithm_MST_Priority_Queue primSolver = new Prims_Algorithm_MST_Priority_Queue();
+    // Class to represent a pair (node, distance) in the graph
+    class Pair {
+        int node;
+        int distance;
 
-        // Example graph represented by an adjacency matrix
-        int[][] graph = {
-                {0, 1, 2},
-                {1, 2, 3},
-                {0, 2, 4}
-        };
-
-        // Number of nodes in the graph
-        int numNodes = 3;
-
-        // Call the solve method to find the minimum spanning tree weight
-        int minimumSpanningTreeWeight = primSolver.solve(numNodes, graph);
-
-        // Print the result
-        System.out.println("Total weight of the minimum spanning tree: " + minimumSpanningTreeWeight);
+        // Constructor to initialize a Pair
+        public Pair(int node, int distance) {
+            this.node = node;
+            this.distance = distance;
+        }
     }
 }
 

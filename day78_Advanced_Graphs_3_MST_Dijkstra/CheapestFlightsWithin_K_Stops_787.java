@@ -64,7 +64,7 @@ class Tuplet {
 }
 
 class CheapestFlightsWithin_K_Stops_787 {
-    public static int findCheapestPrice(int n, int flights[][], int src, int dst, int K) {
+    public static int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
 
         // Create the adjacency list to depict airports and flights in
         // the form of a graph.

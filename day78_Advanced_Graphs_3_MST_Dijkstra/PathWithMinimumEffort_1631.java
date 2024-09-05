@@ -55,6 +55,18 @@ class Tuplee {
 
 public class PathWithMinimumEffort_1631 {
 
+    // Main method for testing
+    public static void main(String[] args) {
+        PathWithMinimumEffort_1631 solution = new PathWithMinimumEffort_1631();
+        int[][] heights = {
+                {1, 2, 2},
+                {3, 8, 2},
+                {5, 3, 5}
+        };
+        int result = solution.minimumEffortPath(heights);
+        System.out.println(result); // Output: 2
+    }
+
     // Main function to find the minimum effort path
     public int minimumEffortPath(int[][] heights) {
         int rows = heights.length;
@@ -112,17 +124,5 @@ public class PathWithMinimumEffort_1631 {
     // Helper function to check if a cell is within the grid boundaries
     private boolean isValid(int row, int col, int rows, int cols) {
         return row >= 0 && row < rows && col >= 0 && col < cols;
-    }
-
-    // Main method for testing
-    public static void main(String[] args) {
-        PathWithMinimumEffort_1631 solution = new PathWithMinimumEffort_1631();
-        int[][] heights = {
-                {1, 2, 2},
-                {3, 8, 2},
-                {5, 3, 5}
-        };
-        int result = solution.minimumEffortPath(heights);
-        System.out.println(result); // Output: 2
     }
 }

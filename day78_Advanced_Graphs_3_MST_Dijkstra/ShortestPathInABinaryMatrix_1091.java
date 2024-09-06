@@ -88,7 +88,7 @@ class ShortestPathInABinaryMatrix_1091 {
 
             // Check if the destination is reached.
             if (row == numRows - 1 && col == numCols - 1) {
-                return distances[row][col];
+                return currentDistance;
             }
 
             // Check adjacent cells for possible movements.

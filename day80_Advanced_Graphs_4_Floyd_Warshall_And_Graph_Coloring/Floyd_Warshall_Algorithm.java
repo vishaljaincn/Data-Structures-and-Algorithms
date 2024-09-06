@@ -8,9 +8,9 @@ from i to j. If Matrix[i][j]=-1, it means there is no edge from i to j.
 Do it in place.
  */
 /*
-Time Complexity: O(V3), as we have three nested loops each running for V times, where V = no. of vertices.
+Time Complexity: O(V^3), as we have three nested loops each running for V times, where V = no. of vertices.
 
-Space Complexity: O(V2), where V = no. of vertices. This space complexity is due to storing the adjacency matrix of the
+Space Complexity: O(V^2), where V = no. of vertices. This space complexity is due to storing the adjacency matrix of the
 given graph.
  */
 // Class to implement the Floyd-Warshall algorithm
@@ -50,6 +50,14 @@ class Floyd_Warshall_Algorithm {
                 }
             }
         }
+
+        // Check for negative cycle
+        for (int i = 0; i < n; i++) {
+            if (matrix[i][i] < 0) {
+                System.out.println("Negative cycle detected.");
+                return;
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -65,12 +73,11 @@ class Floyd_Warshall_Algorithm {
 
         // Assign specific weights between vertices
         matrix[0][1] = 2;
-        matrix[1][0] = 1;
+        matrix[1][0] = -9;
         matrix[1][2] = 3;
         matrix[3][0] = 3;
         matrix[3][1] = 5;
         matrix[3][2] = 4;
-
 
         shortest_distance(matrix);
 
@@ -79,7 +86,7 @@ class Floyd_Warshall_Algorithm {
             for (int j = 0; j < V; j++) {
                 System.out.print(matrix[i][j] + " ");
             }
-            System.out.println("");
+            System.out.println();
         }
     }
 }

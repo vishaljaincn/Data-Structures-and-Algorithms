@@ -1,7 +1,5 @@
 package day70_Advanced_DP_1_One_Dimensional;
 
-import java.util.Arrays;
-
 /*
 You are climbing a staircase. It takes n steps to reach the top.
 Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
@@ -32,8 +30,6 @@ class Climbing_Stairs_70 {
     public int climbStairs(int n) {
         // Create an array to store the computed results for dynamic programming (memoization)
         int[] memo = new int[n + 1];
-        // Initialize the memo array with -1 to indicate that the result is not yet computed.
-        Arrays.fill(memo, -1);
         return climbStairsHelper(n, memo);
     }
 
@@ -44,17 +40,13 @@ class Climbing_Stairs_70 {
         }
 
         // Check if the result for the current n is already computed and stored in memo
-        if (memo[n] != -1) {
+        if (memo[n] != 0) {
             return memo[n];
         }
 
         // Recursive calls to calculate the number of ways to climb stairs.
         // F(n) = F(n-1) + F(n-2)
-        int ways = climbStairsHelper(n - 1, memo) + climbStairsHelper(n - 2, memo);
+        return memo[n] = climbStairsHelper(n - 1, memo) + climbStairsHelper(n - 2, memo);
 
-        // Store the result in memo for future reference
-        memo[n] = ways;
-
-        return ways;
     }
 }

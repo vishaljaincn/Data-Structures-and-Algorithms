@@ -2,7 +2,7 @@ package leetcode_Extra;
 
 import java.util.Arrays;
 /*
-Given an array of intervals intervals where intervals[i] = [start i, end i], return the minimum
+Given an array of intervals, where intervals[i] = [start i, end i], return the minimum
 number of intervals you need to remove to make the rest of the intervals non-overlapping.
 
 Example 1:
